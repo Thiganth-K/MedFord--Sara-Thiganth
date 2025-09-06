@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { motion, Variants, useInView, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { gsap } from 'gsap';
@@ -15,6 +14,7 @@ import {
     BookmarkIcon,
     ArrowRightIcon
 } from '../components/Icons';
+import OurTeam from '../components/OurTeam'; // Adjust path if needed
 
 
 const AnimatedText: React.FC<{ text: string; className?: string; el?: keyof JSX.IntrinsicElements }> = ({ text, className, el = 'h1' }) => {
@@ -718,6 +718,7 @@ const HomePage: React.FC = () => {
       <AboutSection />
       <ProductsSection />
       <ServicesSection />
+      <OurTeam />
       <InvestorsSection />
       <GallerySection />
       <SocialMediaSection />
