@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Car, Layers, Video, Headphones } from "lucide-react"; // icons
 import CardSwap, { Card } from '../components/CardSwap';
+import { AnimatedTestimonials } from "../src/components/ui/animated-testimonials";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,6 +89,28 @@ const services = [
   },
 ];
 
+// ---------------- TESTIMONIALS DATA ----------------
+const testimonials = [
+  {
+    quote: "The medical technology solutions provided have transformed how we operate. Exceptional service and remarkable results.",
+    name: "Dr. Sarah Mitchell",
+    designation: "Chief Medical Officer",
+    src: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=500&auto=format&fit=crop"
+  },
+  {
+    quote: "Their innovative approach to healthcare technology has significantly improved our patient care efficiency.",
+    name: "Dr. James Wilson",
+    designation: "Hospital Director",
+    src: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=500&auto=format&fit=crop"
+  },
+  {
+    quote: "Outstanding support team and cutting-edge solutions that have revolutionized our medical practice.",
+    name: "Dr. Emily Chen",
+    designation: "Head of Cardiology",
+    src: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=500&auto=format&fit=crop"
+  },
+];
+
 // ---------------- SERVICES SECTION ----------------
 const ServicesSection: React.FC = () => {
   return (
@@ -143,6 +166,64 @@ const ServicesSection: React.FC = () => {
   );
 };
 
+// ---------------- BUSINESS SECTION ----------------
+const BusinessSection = () => (
+  <section className="min-h-screen bg-white flex items-center py-20">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
+      {/* Left side content */}
+      <div className="flex flex-col justify-center px-12">
+        <h3 className="text-2xl font-light text-gray-500 mb-3">BUSINESS SOLUTIONS</h3>
+        <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+          Transform your business with{" "}
+          <span className="bg-purple-200 px-2 rounded">innovative</span>{" "}
+          solutions
+        </h2>
+        <div className="space-y-6">
+          <p className="text-lg text-gray-700">
+            Our comprehensive suite of services is designed to elevate your business
+            to new heights. We combine cutting-edge technology with industry expertise
+            to deliver results that matter.
+          </p>
+          <div className="flex items-center space-x-2 text-gray-700">
+            <span className="text-purple-600 text-xl">•</span>
+            <span className="text-lg">Strategic business consulting</span>
+          </div>
+          <div className="flex items-center space-x-2 text-gray-700">
+            <span className="text-purple-600 text-xl">•</span>
+            <span className="text-lg">Digital transformation solutions</span>
+          </div>
+          <div className="flex items-center space-x-2 text-gray-700">
+            <span className="text-purple-600 text-xl">•</span>
+            <span className="text-lg">Innovation-driven growth strategies</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Right side with animated testimonials */}
+      <div className="flex w-full h-full">
+        <div 
+          className="w-full h-[500px] mt-8 bg-purple-600 relative overflow-hidden"
+          style={{
+            borderRadius: "40px 0 0 40px",
+            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+          }}
+        >
+          <div 
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundSize: '30px 30px'
+            }}
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 // ---------------- MAIN PAGE ----------------
 const ServicesPage: React.FC = () => {
   return (
@@ -150,6 +231,7 @@ const ServicesPage: React.FC = () => {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <BusinessSection />
     </div>
   );
 };
