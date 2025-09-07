@@ -1,0 +1,19 @@
+/* Add these to your existing styles */
+.card-swap-container {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  margin-top: -2rem; /* Added negative margin to reduce gap */
+}
+
+.card {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+  .card-swap-container {
+    margin-top: -1rem;
+  }
+}
