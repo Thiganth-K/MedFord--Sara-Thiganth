@@ -118,6 +118,7 @@ const ServicesSection: React.FC = () => {
             pauseOnHover={true}
             skewAmount={4}
             easing="elastic"
+            onCardClick={() => {}}
           >
             {services.map((service, index) => (
               <Card
