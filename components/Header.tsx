@@ -60,7 +60,7 @@ const Header: React.FC = () => {
         className="fixed top-0 left-0 right-0 z-50 pt-4 px-4 sm:px-6 lg:px-8"
     >
       <div className="relative max-w-5xl mx-auto">
-<nav className="flex justify-between items-center bg-white/30 backdrop-blur-sm rounded-full shadow-lg border border-white/20 px-6 py-3">          <Link to="/" className="flex items-center gap-3 text-lg font-bold text-gray-800 hover:text-primary transition-colors">
+<nav className="flex justify-between items-center bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-white/20 px-6 py-3">          <Link to="/" className="flex items-center gap-3 text-lg font-bold text-gray-800 hover:text-primary transition-colors">
             <Logo />
             <span className="hidden sm:inline">MedFord Technologies</span>
           </Link>
