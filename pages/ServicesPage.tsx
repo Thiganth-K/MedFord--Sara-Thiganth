@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Car, Layers, Video, Headphones } from "lucide-react"; // icons
+import { Car, Layers, Video, Headphones, Shield, Clock, Award, Users } from "lucide-react"; // icons
 import CardSwap, { Card } from '../components/CardSwap';
 import { AnimatedTestimonials } from "../src/components/ui/animated-testimonials";
 
@@ -224,6 +224,86 @@ const BusinessSection = () => (
   </section>
 );
 
+// ---------------- WHY CHOOSE US SECTION ----------------
+const WhyChooseUs = () => (
+  <section className="min-h-screen bg-gray-50 flex items-center py-20">
+    <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+      {/* Image on the left */}
+      <div className="md:w-1/2 w-full">
+        <img
+          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+          alt="Medical Technology"
+          className="rounded-2xl w-full h-auto shadow-2xl"
+        />
+      </div>
+
+      {/* Content on the right */}
+      <div className="md:w-1/2 w-full">
+        <h3 className="text-2xl font-light text-gray-500 mb-3">WHY CHOOSE US</h3>
+        <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-8 leading-tight">
+          Excellence in every aspect of{" "}
+          <span className="bg-purple-200 px-2 rounded">healthcare</span>{" "}
+          technology
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Feature 1 */}
+          <div className="flex flex-col items-start">
+            <div className="bg-purple-100 p-3 rounded-lg mb-4">
+              <Shield className="w-8 h-8 text-purple-600" />
+            </div>
+            <h4 className="text-xl font-bold text-gray-900 mb-2">
+              Trusted Security
+            </h4>
+            <p className="text-gray-600">
+              Advanced security protocols ensuring complete protection of sensitive medical data.
+            </p>
+          </div>
+
+          {/* Feature 2 */}
+          <div className="flex flex-col items-start">
+            <div className="bg-purple-100 p-3 rounded-lg mb-4">
+              <Clock className="w-8 h-8 text-purple-600" />
+            </div>
+            <h4 className="text-xl font-bold text-gray-900 mb-2">
+              24/7 Support
+            </h4>
+            <p className="text-gray-600">
+              Round-the-clock technical assistance and support for seamless operations.
+            </p>
+          </div>
+
+          {/* Feature 3 */}
+          <div className="flex flex-col items-start">
+            <div className="bg-purple-100 p-3 rounded-lg mb-4">
+              <Award className="w-8 h-8 text-purple-600" />
+            </div>
+            <h4 className="text-xl font-bold text-gray-900 mb-2">
+              Certified Excellence
+            </h4>
+            <p className="text-gray-600">
+              Industry-leading certifications and compliance with healthcare standards.
+            </p>
+          </div>
+
+          {/* Feature 4 */}
+          <div className="flex flex-col items-start">
+            <div className="bg-purple-100 p-3 rounded-lg mb-4">
+              <Users className="w-8 h-8 text-purple-600" />
+            </div>
+            <h4 className="text-xl font-bold text-gray-900 mb-2">
+              Expert Team
+            </h4>
+            <p className="text-gray-600">
+              Highly skilled professionals with extensive healthcare technology experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 // ---------------- MAIN PAGE ----------------
 const ServicesPage: React.FC = () => {
   return (
@@ -232,6 +312,7 @@ const ServicesPage: React.FC = () => {
       <AboutSection />
       <ServicesSection />
       <BusinessSection />
+      <WhyChooseUs />
     </div>
   );
 };
