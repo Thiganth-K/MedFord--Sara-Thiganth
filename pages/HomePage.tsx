@@ -73,20 +73,21 @@ const AnimatedText: React.FC<{ text: string; className?: string; el?: keyof JSX.
 const HeroSection = () => (
     <div className="relative h-screen flex items-center justify-start text-white overflow-hidden">
         <video autoPlay loop muted playsInline className="absolute z-0 w-auto min-w-full min-h-full max-w-none">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-microscope-in-a-laboratory-2100-large.mp4" type="video/mp4" />
+            <source src="/videos/home_page.mp4" type="video/mp4" />
             Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="z-10 container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl text-left">
-                 <AnimatedText text="Innovating for a Healthier World" className="text-4xl md:text-6xl font-extrabold tracking-tight" />
+                 <AnimatedText text="Revolutionizing Hospital Hygiene with Precision" className="text-4xl md:text-6xl font-extrabold tracking-tight" />
                  <motion.p 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 1 }}
                     className="mt-4 text-lg md:text-xl"
                 >
-                    Medford Technologies is dedicated to advancing medical safety through state-of-the-art sterilization and infection control solutions.
+Medford technologies is where Medtech innovation meets precision 
+engineering
                 </motion.p>
             </div>
         </div>
