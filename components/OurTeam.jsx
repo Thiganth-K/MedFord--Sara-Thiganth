@@ -1,6 +1,5 @@
 import React from "react";
 import { PinContainer } from "../ui/3d-pin"; // adjust path as needed
-import aboutImg from "../assests/about.jpg"; // adjust path as needed
 
 const OurTeam = () => (
   <section className="py-16 px-6 bg-gradient-to-b from-purple-100 via-white to-purple-200 min-h-[600px]">
@@ -12,18 +11,19 @@ const OurTeam = () => (
       <div className="flex flex-col md:flex-row justify-center gap-12">
         {/* Card 1 */}
         <PinContainer
-          title="Thiganth – Founder"
+          title="Lokesh – Founder"
           href="#"
           containerClassName="mx-auto"
-          className="w-96 h-80 flex flex-col items-center bg-purple-900  border-white shadow-xl"
+          className="w-96 h-80 flex flex-col items-center bg-purple-900 border-white shadow-xl"
         >
           <img
-            src={aboutImg}
+            src="/imgs/lokesh.png"
             alt="Team member"
             className="rounded-full w-48 h-48 object-cover mt-10 shadow-xl border-2 border-white"
+            style={{ objectPosition: "center top" }} // Adjusted position
           />
           <div className="mt-6 text-white text-lg font-bold tracking-wide">
-            Thiganth
+            Lokesh
           </div>
           <div className="mt-2 mb-4 text-purple-500 text-md">
             Founder & Lead Designer
@@ -31,29 +31,28 @@ const OurTeam = () => (
         </PinContainer>
 
         {/* Card 2 */}
-<PinContainer
-  title="Sara – Co-Founder"
-  href="#"
-  containerClassName="mx-auto"
-  className="w-96 h-80 flex flex-col items-center bg-purple-900 border-white shadow-xl"
->
-  <img
-    src={aboutImg}
-    alt="Team member"
-    className="rounded-full w-48 h-48 object-cover mt-10 shadow-xl border-2 border-white"
-  />
-  <div className="mt-6 text-white text-lg font-bold tracking-wide">
-    Sara
-  </div>
-  <div className="mt-2 mb-4 text-purple-500 text-md">
-    Co-Founder & Operations
-  </div>
-</PinContainer>
-
+        <PinContainer
+          title="Tharanya – Co-Founder"
+          href="#"
+          containerClassName="mx-auto"
+          className="w-96 h-80 flex flex-col items-center bg-purple-900 border-white shadow-xl"
+        >
+          <img
+            src="/imgs/tharanya.png" // Updated image path
+            alt="Team member"
+            className="rounded-full w-48 h-48 object-cover mt-10 shadow-xl border-2 border-white"
+            style={{ objectPosition: "center top" }}
+          />
+          <div className="mt-6 text-white text-lg font-bold tracking-wide">
+            Tharanya
+          </div>
+          <div className="mt-2 mb-4 text-purple-500 text-md">
+            Co-Founder & Operations
+          </div>
+        </PinContainer>
       </div>
     </div>
   </section>
 );
 
 export default OurTeam;
- 
