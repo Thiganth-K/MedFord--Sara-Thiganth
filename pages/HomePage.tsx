@@ -421,11 +421,11 @@ const GallerySection = () => {
                             }}
                             className="absolute w-full h-full"
                         >
-                            <img
-                                src={GALLERY_IMAGES[imageIndex].src}
-                                alt={GALLERY_IMAGES[imageIndex].caption}
-                                className="w-full h-full object-cover"
-                            />
+              <img
+                src={GALLERY_IMAGES[imageIndex].src}
+                alt={GALLERY_IMAGES[imageIndex].caption}
+                className="w-full h-full object-cover border-8 border-purple-800 rounded-xl"
+              />
                             <div className="absolute inset-0 bg-black/40" />
                         </motion.div>
                     </AnimatePresence>
@@ -438,8 +438,8 @@ const GallerySection = () => {
                 >
                     {/* Top part: Title */}
                     <div className="text-center max-w-3xl mx-auto w-full">
-                        <h2 className="text-3xl md:text-4xl font-bold">Our Gallery</h2>
-                        <p className="mt-4 text-lg text-gray-200">A glimpse into our world of innovation, precision, and care in medical technology.</p>
+                        <h2 className="text-3xl md:text-4xl text-purple-800 font-bold" style={{ textShadow: '2px 2px 6px #fff, 0px 0px 2px #fff' }}>Our Gallery</h2>
+                        <p className="mt-4 text-lg text-purple-800" style={{ textShadow: '2px 2px 6px #fff, 0px 0px 2px #fff' }}>A glimpse into our world of innovation, precision, and care in medical technology.</p>
                     </div>
 
                     {/* Bottom part: Caption and Dots */}
@@ -451,7 +451,7 @@ const GallerySection = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.3 }}
-                                className="text-center text-sm md:text-base mb-4 h-10 flex items-center justify-center"
+                                className="text-center text-sm md:text-base mb-4 h-10 text-purple-800 flex items-center justify-center"
                             >
                                 {GALLERY_IMAGES[imageIndex].caption}
                             </motion.p>
@@ -462,7 +462,7 @@ const GallerySection = () => {
                                 <button
                                     key={index}
                                     onClick={() => setPagetoIndex(index)}
-                                    className={`w-3 h-3 rounded-full transition-all duration-300 ease-in-out ${index === imageIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white'}`}
+                                    className={`w-3 h-3 rounded-full transition-all duration-300 ease-in-out ${index === imageIndex ? 'bg-purple-800 scale-125' : 'bg-purple-200/50 hover:bg-purple-800'}`}
                                     aria-label={`Go to slide ${index + 1}`}
                                     aria-current={index === imageIndex}
                                 />
