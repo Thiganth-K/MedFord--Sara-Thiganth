@@ -9,30 +9,9 @@ const OurTeam = () => (
       </h2>
       <div className="w-28 h-1 bg-purple-400 mx-auto mb-10 rounded-full"></div>
       <div className="flex flex-col md:flex-row justify-center gap-12">
-        {/* Card 1 */}
-        <PinContainer
-          title="Lokesh – Founder"
-          href="#"
-          containerClassName="mx-auto"
-          className="w-96 h-80 flex flex-col items-center bg-purple-900 border-white shadow-xl"
-        >
-          <img
-            src="/imgs/lokesh.png"
-            alt="Team member"
-            className="rounded-full w-48 h-48 object-cover mt-10 shadow-xl border-2 border-white"
-            style={{ objectPosition: "center top" }} // Adjusted position
-          />
-          <div className="mt-6 text-white text-lg font-bold tracking-wide">
-            Lokesh
-          </div>
-          <div className="mt-2 mb-4 text-purple-500 text-md">
-            Founder & Lead Designer
-          </div>
-        </PinContainer>
-
         {/* Card 2 */}
         <PinContainer
-          title="Tharanya – Co-Founder"
+          title="THARANY B – CO-FOUNDER & CHAIRPERSON"
           href="#"
           containerClassName="mx-auto"
           className="w-96 h-80 flex flex-col items-center bg-purple-900 border-white shadow-xl"
@@ -44,12 +23,34 @@ const OurTeam = () => (
             style={{ objectPosition: "center top" }}
           />
           <div className="mt-6 text-white text-lg font-bold tracking-wide">
-            Tharanya
+            Tharanya B
           </div>
           <div className="mt-2 mb-4 text-purple-500 text-md">
-            Co-Founder & Operations
+            CO-FOUNDER & CHAIRPERSON
           </div>
         </PinContainer>
+        {/* Card 1 */}
+        <PinContainer
+          title="LOKESHWARAN J - CO-FOUNDER & HR"
+          href="#"
+          containerClassName="mx-auto"
+          className="w-96 h-80 flex flex-col items-center bg-purple-900 border-white shadow-xl"
+        >
+          <img
+            src="/imgs/lokesh.png"
+            alt="Team member"
+            className="rounded-full w-48 h-48 object-cover mt-10 shadow-xl border-2 border-white"
+            style={{ objectPosition: "center top" }} // Adjusted position
+          />
+          <div className="mt-6 text-white text-lg font-bold tracking-wide">
+            LOKESHWARAN J
+          </div>
+          <div className="mt-2 mb-4 text-purple-500 text-md">
+            CO-FOUNDER & HR
+          </div>
+        </PinContainer>
+
+        
       </div>
     </div>
   </section>

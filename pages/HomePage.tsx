@@ -282,43 +282,18 @@ const ProductsSection = () => {
 };
 
 const ServicesSection = () => (
-    <Section className="py-0 px-0">
-        <div className="relative h-[70vh] flex items-center justify-center text-white overflow-hidden">
-            <video autoPlay loop muted playsInline className="absolute z-0 w-auto min-w-full min-h-full max-w-none">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-team-of-scientists-working-in-a-laboratory-5231-large.mp4" type="video/mp4" />
+    <Section className="py-0 px-0 m-0">
+        <div className="relative h-[70vh] flex items-center justify-center text-white overflow-hidden m-0">
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute z-0 w-[110vw] min-w-0 min-h-full max-w-none rounded-xl shadow-lg m-0"
+            >
+                <source src="/videos/DESIGN_LAB-2.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
-            <div className="absolute inset-0 bg-secondary opacity-60"></div>
-            <div className="z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <motion.div
-                    variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
-                    }}
-                    className="max-w-3xl mx-auto"
-                >
-                    <motion.h2
-                        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                        className="text-3xl md:text-5xl font-extrabold tracking-tight"
-                    >
-                        Our Core Services
-                    </motion.h2>
-                    <motion.p
-                        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                        className="mt-6 text-lg md:text-xl text-gray-200"
-                    >
-                        From advanced sterilization protocols to expert equipment maintenance, we provide comprehensive solutions to ensure your facility operates at the highest standard of safety and efficiency.
-                    </motion.p>
-                    <motion.div
-                        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                        className="mt-10"
-                    >
-                        <Link to="/services" className="inline-block bg-primary text-white font-bold py-4 px-10 rounded-full hover:bg-primary-light transition-colors shadow-2xl text-lg">
-                            Explore Our Services
-                        </Link>
-                    </motion.div>
-                </motion.div>
-            </div>
         </div>
     </Section>
 );
@@ -716,7 +691,7 @@ const SocialMediaSection = () => {
               </div>
             </div>
 
-            <div className="relative mx-auto w-80 h-[600px] bg-gray-900 rounded-[40px] border-[10px] border-gray-900 shadow-2xl">
+            <div className="relative mx-auto w-80 h-[650px] bg-gray-900 rounded-[40px] border-[10px] border-gray-900 shadow-2xl">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-5 bg-gray-900 rounded-b-lg z-20"></div>
               <div className="w-full h-full bg-white rounded-[30px] overflow-hidden">
                 <AnimatePresence mode="wait">
@@ -783,7 +758,7 @@ const BlogSection = () => (
         <div className="container mx-auto">
             <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-800">From Our Blog</h2>
-                <div className="w-24 h-1 bg-primary mx-auto mt-4 mb-6"></div>
+                <div className="w-24 h-1 bg-primary mx-auto mt-4 "></div>
                 <p className="text-lg text-gray-600">Stay updated with the latest news, articles, and insights from the medical technology industry.</p>
             </div>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -792,10 +767,10 @@ const BlogSection = () => (
                         key={post.id}
                         variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                         whileHover={{ y: -10 }}
-                        className="bg-white rounded-lg shadow-lg overflow-hidden group"
+                        className="bg-white rounded-lg shadow-lg mb-4 overflow-hidden group"
                     >
-                        <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
-                        <div className="p-6">
+                        <img src={post.image} alt={post.title} className="w-full  h-48 object-cover" />
+                        <div className="p-6 mb-4">
                             <p className="text-sm text-gray-500">{post.date}</p>
                             <h3 className="mt-2 text-xl font-semibold">{post.title}</h3>
                             <p className="mt-2 text-gray-600">{post.excerpt}</p>
