@@ -381,7 +381,7 @@ const GallerySection = () => {
     React.useEffect(() => {
         const interval = setInterval(() => {
             paginate(1);
-        }, 5000);
+        }, 2500); // Changed from 5000ms to 2500ms for faster transitions
         return () => clearInterval(interval);
     }, [page]);
 
@@ -436,13 +436,13 @@ const GallerySection = () => {
                     style={{ opacity }}
                     className="relative z-10 h-full flex flex-col items-center justify-between text-white container mx-auto px-4 py-8"
                 >
-                    {/* Top part: Title */}
+                    {/* Top part: Title 
                     <div className="text-center max-w-3xl mx-auto w-full">
                         <h2 className="text-3xl md:text-4xl text-purple-800 font-bold" style={{ textShadow: '2px 2px 6px #fff, 0px 0px 2px #fff' }}>Our Gallery</h2>
                         <p className="mt-4 text-lg text-purple-800" style={{ textShadow: '2px 2px 6px #fff, 0px 0px 2px #fff' }}>A glimpse into our world of innovation, precision, and care in medical technology.</p>
                     </div>
-
-                    {/* Bottom part: Caption and Dots */}
+                      */}
+                    {/* Bottom part: Caption and Dots 
                     <div className="w-full max-w-5xl">
                         <AnimatePresence mode="wait">
                             <motion.p
@@ -467,8 +467,8 @@ const GallerySection = () => {
                                     aria-current={index === imageIndex}
                                 />
                             ))}
-                        </div>
-                    </div>
+                        </div> 
+                    </div>*/}
                 </motion.div>
             </div>
         </div>
@@ -514,7 +514,7 @@ const SocialMediaSection = () => {
   React.useEffect(() => {
     const timer = setInterval(() => {
       setPostIndex((prevIndex) => (prevIndex + 1) % SOCIAL_POSTS.length);
-    }, 5000);
+    }, 2000);
     return () => clearInterval(timer);
   }, []);
 
@@ -788,59 +788,61 @@ const BlogSection = () => (
 
 
 const ContactSection = () => (
-    <Section id="contact" className="bg-gradient-to-br from-primary to-purple-600 text-white">
-        <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 className="text-3xl md:text-4xl font-bold">Get in Touch</h2>
-                <p className="mt-4 text-lg text-purple-200">
-                    Have questions or need a consultation? We're here to help. Reach out to us, and our team will get back to you promptly.
-                </p>
-            </div>
-            <form className="bg-white p-8 rounded-lg shadow-2xl text-gray-800">
-                <div className="mb-4">
-                    <label htmlFor="fullName" className="block font-semibold mb-1">Full Name</label>
-                    <input type="text" id="fullName" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:outline-none" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="email" className="block font-semibold mb-1">Email Address</label>
-                    <input type="email" id="email" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:outline-none" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="phone" className="block font-semibold mb-1">Phone Number</label>
-                    <input type="tel" id="phone" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:outline-none" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="organization" className="block font-semibold mb-1">Organization Name</label>
-                    <input type="text" id="organization" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:outline-none" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="location" className="block font-semibold mb-1">Location</label>
-                    <input type="text" id="location" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:outline-none" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="inquiryType" className="block font-semibold mb-1">Inquiry Type</label>
-                    <select id="inquiryType" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:outline-none">
-                        <option value="product">Product Inquiry</option>
-                        <option value="service">Service Inquiry</option>
-                        <option value="others">Others</option>
-                    </select>
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="requirement" className="block font-semibold mb-1">Requirement Description</label>
-                    <textarea id="requirement" rows={4} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
-                </div>
-                <div className="mb-4 flex items-start">
-                    <input type="checkbox" id="consent" className="mt-1 mr-2" />
-                    <label htmlFor="consent" className="text-sm">
-                        I agree to the <a href="#" className="text-primary underline">Terms and Conditions</a> and consent to being contacted by Medford Technologies.
-                    </label>
-                </div>
-                <button type="submit" className="w-full py-3 bg-primary hover:bg-primary-light text-white font-semibold rounded-lg shadow-lg transition-colors">
-                    Send Message
-                </button>
-            </form>
+  <Section id="contact" className="bg-[#f7f7fb] text-gray-900">
+    <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center py-16">
+      {/* Left Info Panel */}
+      <div className="pr-8">
+        <p className="text-xs font-semibold text-purple-600 mb-2 tracking-widest">WE'RE HERE TO HELP YOU</p>
+        <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-2">
+          <span className="text-purple-700">Discuss</span> Your<br />
+          Chemical Solution Needs
+        </h2>
+        <p className="mt-4 text-base text-gray-600 mb-6">
+          Are you looking for top-quality chemical solutions tailored to your needs? Reach out to us.
+        </p>
+        <div className="flex items-center gap-3 mb-2">
+          <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 12v1m0 0v1m0-1h-4m4 0h4m-4 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+          <span className="text-sm font-medium">E-mail</span>
         </div>
-    </Section>
+        <p className="text-sm text-gray-700 mb-4">
+support@medford.in
+</p>
+        <div className="flex items-center gap-3 mb-2">
+          <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2zm10-10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+          <span className="text-sm font-medium">Phone number</span>
+        </div>
+        <p className="text-sm text-gray-700 mb-4">+919080705892</p>
+      </div>
+      {/* Right Form Panel */}
+      <form className="bg-white p-8 rounded-2xl shadow-xl text-gray-800 w-full max-w-md mx-auto">
+        <div className="mb-4">
+          <label htmlFor="fullName" className="block font-semibold mb-1 text-gray-700">Name</label>
+          <input type="text" id="fullName" placeholder="Jane Smith" className="w-full p-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-400 focus:outline-none" />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="email" className="block font-semibold mb-1 text-gray-700">Email</label>
+          <input type="email" id="email" placeholder="email@domain.com" className="w-full p-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-400 focus:outline-none" />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="industry" className="block font-semibold mb-1 text-gray-700">Industry</label>
+          <select id="industry" className="w-full p-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-400 focus:outline-none">
+            <option value="">Select...</option>
+            <option value="chemical">Chemical</option>
+            <option value="pharma">Pharmaceutical</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div className="mb-4">
+          <label htmlFor="message" className="block font-semibold mb-1 text-gray-700">Message</label>
+          <textarea id="message" rows={4} placeholder="Type your message" className="w-full p-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-400 focus:outline-none"></textarea>
+        </div>
+        <button type="submit" className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+          Get a Solution
+        </button>
+      </form>
+    </div>
+  </Section>
 );
 
 

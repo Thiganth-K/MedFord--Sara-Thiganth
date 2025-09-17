@@ -18,7 +18,7 @@ const HeroSection = () => (
         transition={{ duration: 0.8 }}
         className="text-4xl md:text-6xl font-extrabold"
       >
-        Our Expert Services
+        Our Service Wing
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
@@ -26,8 +26,7 @@ const HeroSection = () => (
         transition={{ duration: 0.8, delay: 0.2 }}
         className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-purple-200"
       >
-        Delivering excellence and precision in every aspect of medical
-        technology support and management.
+        From Visionary Sketch to Market-Ready Product
       </motion.p>
     </div>
   </div>
@@ -46,20 +45,29 @@ const AboutSection = () => (
         />
       </div>
       {/* Text content on the right */}
-      <div className="md:w-1/2 w-full text-left">
-        <h3 className="text-2xl font-light text-gray-500 mb-3">ABOUT US</h3>
+  <div className="md:w-1/2 w-full text-left flex flex-col justify-center">
+        <h3 className="text-2xl font-light text-gray-500 mb-3">About Medford Design Lab</h3>
         <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
-          Helping businesses{" "}
-          <span className="bg-purple-200 px-2 rounded">succeed</span>{" "}
-          through the power of video
+          Powering MedTech  {" "}
+          <span className="bg-purple-200 px-2 rounded">Innovation,</span>{" "}
+          One Prototype at a Time
           <span className="text-purple-700">.</span>
         </h2>
-        <p className="mt-4 text-lg text-gray-700 max-w-lg">
-          Video is the future of business in this digital-focused world. We use
-          video to change the way companies create content and communicate. We
-          help organizations of all sizes humanize their communications and
-          personalize their customer experience.
+        <p className="mt-4 text-lg text-gray-700 max-w-2xl">
+          M Design Lab is the dedicated innovation wing of Medford Technologies, created to bridge the gap between visionary ideas and market-ready medical technology solutions.
+          Our approach combines deep industry expertise, precise engineering, and market-driven insights, empowering startups, research labs, hospitals, and founders to develop breakthrough medical technologies faster, safer, and more cost-effectively.
         </p>
+        {/* Download Brochure Button below text */}
+        <a
+          href="/docs/DL_BROUCHER.pdf"
+          download
+          className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg shadow transition-colors w-fit"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+          </svg>
+          Download Brochure
+        </a>
       </div>
     </div>
   </section>
@@ -115,23 +123,20 @@ const testimonials = [
 const ServicesSection: React.FC = () => {
   return (
     <section className="min-h-screen bg-gray-50 flex items-center py-12">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+  <div className="container mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Left side content */}
-        <div>
-          <h3 className="text-2xl font-light text-gray-500 mb-3">OUR SERVICES</h3>
+  <div className="md:pr-40 pr-12">
+          <h3 className="text-2xl font-light text-gray-500 mb-3">Our Services</h3>
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-            Empowering businesses with{" "}
-            <span className="bg-purple-200 px-2 rounded">world-class services</span>.
+            Concept-to-Prototype Development
           </h2>
-          <p className="text-lg text-gray-700 max-w-lg">
-            From consulting to full-scale production, our services cover
-            everything you need to thrive in today's fast-paced, digital-first
-            world. We focus on innovation, creativity, and measurable results.
+          <p className="text-lg text-gray-700 max-w-xl mb-6">
+            We specialize in transforming innovative MedTech ideas into market-ready prototypes with speed and precision. From initial concept sketches to functional models, our expert team integrates clinical insights, engineering excellence, and regulatory guidance — ensuring every product is designed for safety, compliance, and manufacturability. Empower your innovation with our streamlined, research-backed development process.
           </p>
+          
         </div>
-
-        {/* RIGHT SIDE CARD SWAP */}
-        <div className="relative h-[250px] flex items-start justify-center">
+        {/* Right side CardSwap for Key Highlights */}
+  <div className="relative h-[250px] flex items-start justify-center ml-8 md:ml-20">
           <CardSwap
             width={400}
             height={300}
@@ -143,22 +148,41 @@ const ServicesSection: React.FC = () => {
             easing="elastic"
             onCardClick={() => {}}
           >
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                className="bg-white p-8 flex flex-col items-center justify-center text-center rounded-xl shadow-lg"
-              >
-                <div className="bg-purple-100 p-4 rounded-full mb-4">
-                  {service.icon}
-                </div>
-                <h4 className="text-xl font-bold text-gray-900 mb-2">
-                  {service.title}
-                </h4>
-                <p className="text-gray-600 text-sm">
-                  {service.desc}
-                </p>
-              </Card>
-            ))}
+            <Card className="bg-white p-8 flex flex-col items-center justify-center text-center rounded-xl shadow-lg border border-purple-700">
+              <div className="bg-purple-100 p-4 rounded-full mb-4">
+                <Layers className="w-10 h-10 text-purple-700" />
+              </div>
+              <h4 className="text-xl font-bold text-purple-700 mb-2">Rapid Prototyping</h4>
+              <p className="text-purple-700 text-base">Fast turnaround from idea to functional model</p>
+            </Card>
+            <Card className="bg-white p-8 flex flex-col items-center justify-center text-center rounded-xl shadow-lg border border-purple-700">
+              <div className="bg-purple-100 p-4 rounded-full mb-4">
+                <Headphones className="w-10 h-10 text-purple-700" />
+              </div>
+              <h4 className="text-xl font-bold text-purple-700 mb-2">Clinical Validation</h4>
+              <p className="text-purple-700 text-base">Insights from medical experts for real-world relevance</p>
+            </Card>
+            <Card className="bg-white p-8 flex flex-col items-center justify-center text-center rounded-xl shadow-lg border border-purple-700">
+              <div className="bg-purple-100 p-4 rounded-full mb-4">
+                <Shield className="w-10 h-10 text-purple-700" />
+              </div>
+              <h4 className="text-xl font-bold text-purple-700 mb-2">Regulatory Support</h4>
+              <p className="text-purple-700 text-base">Guidance for navigating complex compliance standards</p>
+            </Card>
+            <Card className="bg-white p-8 flex flex-col items-center justify-center text-center rounded-xl shadow-lg border border-purple-700">
+              <div className="bg-purple-100 p-4 rounded-full mb-4">
+                <Award className="w-10 h-10 text-purple-700" />
+              </div>
+              <h4 className="text-xl font-bold text-purple-700 mb-2">IP Protection</h4>
+              <p className="text-purple-700 text-base">Strong strategies to safeguard your innovation</p>
+            </Card>
+            <Card className="bg-white p-8 flex flex-col items-center justify-center text-center rounded-xl shadow-lg border border-purple-700">
+              <div className="bg-purple-100 p-4 rounded-full mb-4">
+                <Layers className="w-10 h-10 text-purple-700" />
+              </div>
+              <h4 className="text-xl font-bold text-purple-700 mb-2">Scalable Design</h4>
+              <p className="text-purple-700 text-base">Built for manufacturability and future growth</p>
+            </Card>
           </CardSwap>
         </div>
       </div>
@@ -172,17 +196,15 @@ const BusinessSection = () => (
     <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
       {/* Left side content */}
       <div className="flex flex-col justify-center px-12">
-        <h3 className="text-2xl font-light text-gray-500 mb-3">BUSINESS SOLUTIONS</h3>
+        <h3 className="text-2xl font-light text-gray-500 mb-3">THE CHALLENGES WE SEE</h3>
         <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-          Transform your business with{" "}
-          <span className="bg-purple-200 px-2 rounded">innovative</span>{" "}
-          solutions
+          Bringing a  {" "}
+          <span className="bg-purple-200 px-2 rounded">MedTech idea</span>{" "}
+          to life isn’t easy.
         </h2>
         <div className="space-y-6">
           <p className="text-lg text-gray-700">
-            Our comprehensive suite of services is designed to elevate your business
-            to new heights. We combine cutting-edge technology with industry expertise
-            to deliver results that matter.
+            MedTech innovators often face significant challenges in validating their ideas with real clinical insights, accessing specialized design expertise, and managing high prototyping costs with extended development timelines. Securing reliable manufacturing partners can be difficult, while protecting intellectual property and navigating complex regulatory frameworks add additional barriers to bringing products to market.
           </p>
           <div className="flex items-center space-x-2 text-gray-700">
             <span className="text-purple-600 text-xl">•</span>

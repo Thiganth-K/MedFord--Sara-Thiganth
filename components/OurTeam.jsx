@@ -11,7 +11,7 @@ const OurTeam = () => (
       <div className="flex flex-col md:flex-row justify-center gap-12">
         {/* Card 2 */}
         <PinContainer
-          title="THARANY B – CO-FOUNDER & CHAIRPERSON"
+          title="THARANY  – CO-FOUNDER & CHAIRPERSON"
           href="#"
           containerClassName="mx-auto"
           className="w-96 h-80 flex flex-col items-center bg-purple-900 border-white shadow-xl"
@@ -23,7 +23,7 @@ const OurTeam = () => (
             style={{ objectPosition: "center top" }}
           />
           <div className="mt-6 text-white text-lg font-bold tracking-wide">
-            Tharanya B
+            THARANY
           </div>
           <div className="mt-2 mb-4 text-purple-500 text-md">
             CO-FOUNDER & CHAIRPERSON
@@ -31,7 +31,7 @@ const OurTeam = () => (
         </PinContainer>
         {/* Card 1 */}
         <PinContainer
-          title="LOKESHWARAN J - CO-FOUNDER & HR"
+          title="LOKESHWARAN  - CO-FOUNDER & HR"
           href="#"
           containerClassName="mx-auto"
           className="w-96 h-80 flex flex-col items-center bg-purple-900 border-white shadow-xl"
