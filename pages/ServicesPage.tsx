@@ -131,7 +131,9 @@ const ServicesSection: React.FC = () => {
             Concept-to-Prototype Development
           </h2>
           <p className="text-lg text-gray-700 max-w-xl mb-6">
-            We specialize in transforming innovative MedTech ideas into market-ready prototypes with speed and precision. From initial concept sketches to functional models, our expert team integrates clinical insights, engineering excellence, and regulatory guidance — ensuring every product is designed for safety, compliance, and manufacturability. Empower your innovation with our streamlined, research-backed development process.
+            We specialize in transforming innovative MedTech ideas into market-ready prototypes with
+            <span className="bg-purple-200 text-purple-800 px-2 py-1 rounded font-semibold mx-1">speed and precision</span>.
+            From initial concept sketches to functional models, our expert team integrates clinical insights, engineering excellence, and regulatory guidance — ensuring every product is designed for safety, compliance, and manufacturability. Empower your innovation with our streamlined, research-backed development process.
           </p>
           
         </div>

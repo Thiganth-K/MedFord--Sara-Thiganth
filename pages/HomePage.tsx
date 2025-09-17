@@ -291,7 +291,7 @@ const ServicesSection = () => (
                 playsInline
                 className="absolute z-0 w-[110vw] min-w-0 min-h-full max-w-none rounded-xl shadow-lg m-0"
             >
-                <source src="/videos/DESIGN_LAB-2.mp4" type="video/mp4" />
+                <source src="/videos/DL-2.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
         </div>

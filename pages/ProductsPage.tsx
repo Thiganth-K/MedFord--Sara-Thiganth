@@ -53,7 +53,7 @@ const HeroSection = () => (
       playsInline
       className="absolute inset-0 w-full h-full object-cover z-0"
     >
-      <source src="https://assets.mixkit.co/videos/preview/mixkit-a-scientist-pours-a-colored-liquid-into-a-beaker-3461-large.mp4" type="video/mp4" />
+      <source src="./videos/prd-1.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <div className="absolute inset-0 bg-black opacity-60"></div>
