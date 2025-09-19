@@ -3,79 +3,97 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
 import { BoltIcon, GlobeAltIcon, RocketLaunchIcon, EyeIcon } from "../components/Icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
-    title: "Advanced Sterilization",
+    title: "Intelligent Medical Washer Disinfector",
     description:
-      "Next-generation plasma and vapor sterilization technology ensures the highest level of microbial inactivation, even for complex and heat-sensitive instruments.",
+      "BLUVIA NEO is an advanced medical washer disinfector crafted to transform the way hospitals manage surgical instrument reprocessing. With its intelligent design and advanced engineering, it streamlines cleaning workflows, reduces turnaround time, and ensures the highest standards of safety and compliance. Purpose-built for modern CSSDs, BLUVIA NEO combines performance, precision, and reliability to support infection control while empowering healthcare teams with confidence and efficiency.",
     icon: BoltIcon,
-    image:
-      "https://images.unsplash.com/photo-1618939307313-a212d38185a5?q=80&w=870&auto=format&fit=crop",
+    image: "/imgs/pr1.png",
   },
   {
-    title: "Eco-Friendly Formula",
+    title: "High-Capacity Instrument Racks",
     description:
-      "Our powerful disinfectants are formulated to be biodegradable and non-toxic, ensuring they are safe for healthcare professionals, patients, and the planet.",
+      "BLUVIA NEO is equipped with precision-engineered racks capable of handling upto 120 surgical instruments per cycle, allowing hospitals to process large volumes efficiently. This high-capacity system ensures quicker turnaround of surgical sets, reduces downtime, and optimizes the overall workflow in sterile services. By supporting consistent and thorough cleaning, it strengthens hospital infection control measures and enhances patient safety.",
     icon: GlobeAltIcon,
-    image:
-      "https://images.unsplash.com/photo-1579165466949-518dd7283537?q=80&w=870&auto=format&fit=crop",
+    image: "/imgs/pr2.png",
   },
   {
-    title: "Fast Acting Solutions",
+    title: "HEPA-Filtered Air Drying",
     description:
-      "Rapid disinfection and sterilization cycles significantly reduce turnaround times, boosting workflow efficiency and allowing for higher patient throughput.",
+      "BLUVIA NEO is equipped with a 99.97% HEPA filtration system that delivers clean, particle-free air during the drying phase. This advanced mechanism ensures that every instrument is not only dry but also protected against microbial recontamination, preserving sterility until the next stage of processing. By eliminating residual moisture, the system prevents corrosion and extends the life of surgical instruments, giving hospitals a dependable solution for maintaining instrument integrity and safety.",
     icon: RocketLaunchIcon,
-    image:
-      "https://images.unsplash.com/photo-1554734867-bf3c00a49371?q=80&w=870&auto=format&fit=crop",
+    image: "/imgs/pr3.png",
   },
   {
-    title: "Versatile Applications",
+    title: "Advanced Disinfecting Solutions",
     description:
-      "Our products are rigorously tested and proven effective on a wide range of surfaces, materials, and medical instruments, providing a comprehensive safety solution.",
+      "To achieve uncompromised cleaning performance, BLUVIA NEO utilizes a specialized combination of disinfecting agents.Together, these agents break down bioburden, neutralize residues, and ensure spotless results across diverse surgical instruments. This powerful cleaning chemistry, integrated with the machine’s precision-engineered cycles, enables consistent, repeatable, and ISO-compliant outcomes, making BLUVIA NEO a trusted solution for modern CSSDs and sterile processing departments worldwide.",
     icon: EyeIcon,
-    image:
-      "https://images.unsplash.com/photo-1581093458791-9a733b6aa219?q=80&w=870&auto=format&fit=crop",
+    image: "/imgs/pr3.png",
+  },
+  {
+    title: "Integrated Digital Documentation",
+    description:
+      "BLUVIA NEO’s optimized interfaces implifies compliance by automatically recording sterilization and disinfection data via network or USB. Fully aligned with ISO standards, it offers complete traceability, seamless audit readiness, and transparent reporting for hospital infection control systems. This ensures not only operational efficiency but also confidence in meeting regulatory requirements and delivering safe healthcare outcomes.",
+    icon: GlobeAltIcon,
+    image: "/imgs/pr1.png",
   },
 ];
 
 // --- Hero Section ---
-const HeroSection = () => (
-  <div className="relative h-screen flex items-center justify-start text-white overflow-hidden">
-    <video
-      autoPlay
-      loop
-      muted
-      playsInline
-      className="absolute inset-0 w-full h-full object-cover z-0"
-    >
-      <source src="./videos/prd-1.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    <div className="absolute inset-0 bg-black opacity-60"></div>
-    <div className="z-10 px-4 text-left w-full max-w-2xl ml-12">
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl md:text-6xl font-extrabold tracking-tight"
+const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate('/', { state: { scrollToContact: true } });
+  };
+
+  return (
+    <div className="relative h-screen flex items-center justify-start text-white overflow-hidden">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        BLUVIA Neo
-      </motion.h1>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="mt-4 text-lg md:text-xl max-w-2xl"
-      >
-        Engineered for safety, efficiency, and reliability.
-      </motion.p>
+        <source src="./videos/prd-1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="absolute inset-0 bg-black opacity-60"></div>
+      <div className="z-10 px-4 text-left w-full max-w-2xl ml-12">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-6xl font-extrabold tracking-tight"
+        >
+          BLUVIA Neo
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-4 text-lg md:text-xl max-w-2xl"
+        >
+          Engineered for safety, efficiency, and reliability.
+        </motion.p>
+        <button
+          onClick={handleGetStarted}
+          className="inline-block mt-8 px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-full shadow-lg text-lg transition-colors"
+        >
+          Get Started
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 // --- Features Section with GSAP on Desktop ---
 const ScrollingFeaturesSection = () => {

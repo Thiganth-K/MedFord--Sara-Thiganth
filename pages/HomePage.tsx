@@ -20,6 +20,9 @@ import BlurText from '../components/BlurText'; // Add this import
 import RotatingText from '../components/RotatingText';
 
 
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+
 const AnimatedText: React.FC<{ text: string; className?: string; el?: keyof JSX.IntrinsicElements }> = ({ text, className, el = 'h1' }) => {
     const words = text.split(" ");
     const container: Variants = {
@@ -669,7 +672,7 @@ const BlogSection = () => (
 
 
 const ContactSection = () => (
-  <Section id="contact" className="bg-[#f7f7fb] text-gray-900">
+  <Section id="contact" className="bg-[#f7f7fb] text-gray-900 scroll-mt-24">
     <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center py-16">
       {/* Left Info Panel */}
       <div className="pr-8">
@@ -727,7 +730,24 @@ support@medford.in
 
 
 const HomePage: React.FC = () => {
-  // ...existing code...
+  const location = useLocation();
+  
+  useEffect(() => {
+    // Handle scroll to section based on hash or state
+    const hash = location.hash?.substring(1); // Remove the # symbol
+    const sectionId = hash || location.state?.scrollTo || (location.state?.scrollToContact ? 'contact' : '');
+    
+    if (sectionId) {
+      // Wait for components to render
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   const timelineData = [
     {
       title: "2022-2023",

@@ -28,8 +28,21 @@ const AppContent = () => {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+    // Handle scroll to top on regular navigation
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
+
+    // Handle scroll to section if coming from another page
+    if (location.pathname === "/" && location.hash === "#/") {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        setTimeout(() => {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location.pathname, location.hash]);
 
   return (
     <>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="bg-[#CCA2DA] rounded-t-3xl w-full py-8 px-4">
+    <footer id="footer" className="bg-[#CCA2DA] rounded-t-3xl w-full py-8 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-1 items-start">
   {/* Left: Company Info */}
   <div className="flex flex-col items-start col-span-2">

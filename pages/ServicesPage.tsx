@@ -10,8 +10,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 // ---------------- HERO SECTION ----------------
 const HeroSection = () => (
-  <div className="h-screen bg-gradient-to-br from-primary to-purple-700 flex items-center justify-center text-white">
-    <div className="container mx-auto px-4 text-center">
+  <div className="relative h-screen flex items-center justify-center text-white overflow-hidden">
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="absolute z-0 w-full h-full object-cover"
+    >
+      <source src="/videos/service.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div className="absolute inset-0 bg-black opacity-60 z-1"></div>
+    <div className="container mx-auto px-4 text-center relative z-10">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -34,7 +45,7 @@ const HeroSection = () => (
 
 // ---------------- ABOUT SECTION ----------------
 const AboutSection = () => (
-  <section className="min-h-screen bg-white flex items-center">
+  <section id="about" className="min-h-screen bg-white flex items-center scroll-mt-24">
     <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
       {/* Image on the left */}
       <div className="md:w-1/2 w-full flex justify-center mb-8 md:mb-0">
@@ -263,63 +274,63 @@ const WhyChooseUs = () => (
 
       {/* Content on the right */}
       <div className="md:w-1/2 w-full">
-        <h3 className="text-2xl font-light text-gray-500 mb-3">WHY CHOOSE US</h3>
+        <h3 className="text-2xl font-light text-gray-500 mb-3">Who We Work With</h3>
         <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-8 leading-tight">
-          Excellence in every aspect of{" "}
-          <span className="bg-purple-200 px-2 rounded">healthcare</span>{" "}
-          technology
+          Empowering Innovators Across the {" "}
+          <span className="bg-purple-200 px-2 rounded">MedTech Ecosystem</span>{" "}
+         
         </h2>
-
+        <p className="text-lg text-gray-700 mb-8"> We partner with a diverse range of forward-thinking organizations, providing expert guidance and hands-on support to bring medical technology innovations to life.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Feature 1 */}
-          <div className="flex flex-col items-start">
-            <div className="bg-purple-100 p-3 rounded-lg mb-4">
-              <Shield className="w-8 h-8 text-purple-600" />
-            </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">
-              Trusted Security
-            </h4>
-            <p className="text-gray-600">
-              Advanced security protocols ensuring complete protection of sensitive medical data.
-            </p>
-          </div>
-
-          {/* Feature 2 */}
-          <div className="flex flex-col items-start">
-            <div className="bg-purple-100 p-3 rounded-lg mb-4">
-              <Clock className="w-8 h-8 text-purple-600" />
-            </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">
-              24/7 Support
-            </h4>
-            <p className="text-gray-600">
-              Round-the-clock technical assistance and support for seamless operations.
-            </p>
-          </div>
-
-          {/* Feature 3 */}
-          <div className="flex flex-col items-start">
-            <div className="bg-purple-100 p-3 rounded-lg mb-4">
-              <Award className="w-8 h-8 text-purple-600" />
-            </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">
-              Certified Excellence
-            </h4>
-            <p className="text-gray-600">
-              Industry-leading certifications and compliance with healthcare standards.
-            </p>
-          </div>
-
-          {/* Feature 4 */}
+          {/* Partner 1 */}
           <div className="flex flex-col items-start">
             <div className="bg-purple-100 p-3 rounded-lg mb-4">
               <Users className="w-8 h-8 text-purple-600" />
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-2">
-              Expert Team
+              MedTech Startups
             </h4>
             <p className="text-gray-600">
-              Highly skilled professionals with extensive healthcare technology experience.
+              Helping early-stage companies develop market-ready medical devices efficiently.
+            </p>
+          </div>
+
+          {/* Partner 2 */}
+          <div className="flex flex-col items-start">
+            <div className="bg-purple-100 p-3 rounded-lg mb-4">
+              <Award className="w-8 h-8 text-purple-600" />
+            </div>
+            <h4 className="text-xl font-bold text-gray-900 mb-2">
+              Research Labs & Academic Institutions
+            </h4>
+            <p className="text-gray-600">
+              Turning cutting-edge research into practical prototypes with clinical and engineering validation.
+            </p>
+          </div>
+
+          {/* Partner 3 */}
+          <div className="flex flex-col items-start">
+            <div className="bg-purple-100 p-3 rounded-lg mb-4">
+              <Shield className="w-8 h-8 text-purple-600" />
+            </div>
+            <h4 className="text-xl font-bold text-gray-900 mb-2">
+              Hospital Innovation Teams
+            </h4>
+            <p className="text-gray-600">
+              Supporting in-house development of solutions that address real-world clinical needs.
+            </p>
+          </div>
+
+          {/* Partner 4 */}
+          <div className="flex flex-col items-start">
+            <div className="bg-purple-100 p-3 rounded-lg mb-4">
+              <Clock className="w-8 h-8 text-purple-600" />
+            </div>
+            <h4 className="text-xl font-bold text-gray-900 mb-2">
+              Healthcare Innovators & Founders
+            </h4>
+            <p className="text-gray-600">
+              Enabling visionary leaders to explore new device verticals and scale ideas into impactful products.
             </p>
           </div>
         </div>

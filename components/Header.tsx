@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { NAV_LINKS } from '../constants';
 
@@ -23,6 +23,7 @@ const Header: React.FC = () => {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -79,7 +80,24 @@ const Header: React.FC = () => {
               >
                 <Link 
                   key={link.name} 
-                  to={link.path} 
+                  to={link.path}
+                  onClick={(e) => {
+                    if (link.path.startsWith('/#')) {
+                      e.preventDefault();
+                      const targetId = link.path.substring(2);
+                      
+                      if (location.pathname !== '/') {
+                        // If not on home page, navigate to home and set state
+                        navigate('/', { state: { scrollTo: targetId } });
+                      } else {
+                        // If on home page, scroll to section
+                        const element = document.getElementById(targetId);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }
+                    }
+                  }} 
                   className="relative block px-4 py-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors duration-300"
                 >
                   {location.pathname === link.path && (
@@ -124,7 +142,29 @@ const Header: React.FC = () => {
             >
               <div className="flex flex-col items-stretch py-2">
                 {NAV_LINKS.map((link) => (
-                  <Link key={link.name} to={link.path} className="px-6 py-3 text-gray-700 hover:text-primary hover:bg-white/50 transition-colors duration-300 text-base text-center">
+                  <Link 
+                    key={link.name} 
+                    to={link.path}
+                    onClick={(e) => {
+                      if (link.path.startsWith('/#')) {
+                        e.preventDefault();
+                        const targetId = link.path.substring(2);
+                        setIsOpen(false);
+                        
+                        if (location.pathname !== '/') {
+                          // If not on home page, navigate to home and set state
+                          navigate('/', { state: { scrollTo: targetId } });
+                        } else {
+                          // If on home page, scroll to section
+                          const element = document.getElementById(targetId);
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }
+                        }
+                      }
+                    }}
+                    className="px-6 py-3 text-gray-700 hover:text-primary hover:bg-white/50 transition-colors duration-300 text-base text-center"
+                  >
                     {link.name}
                   </Link>
                 ))}
