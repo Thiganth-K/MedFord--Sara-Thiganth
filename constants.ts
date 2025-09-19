@@ -47,7 +47,7 @@ export const SERVICES_DATA: Service[] = [
 ];
 
 export const PRODUCTS_DATA: Product[] = [
-    { id: 1, name: 'SteriPro X2', description: 'Automated high-capacity sterilization unit.', image: 'https://picsum.photos/seed/prod1/600/400' },
+    { id: 1, name: 'BLUVIA Neo', description: 'Advanced Washer Disinfector', image: 'https://picsum.photos/seed/prod1/600/400' },
     { id: 2, name: 'EnviroCleanse', description: 'Eco-friendly, broad-spectrum surface disinfectant.', image: 'https://picsum.photos/seed/prod2/600/400' },
     { id: 3, name: 'NanoGuard', description: 'Antimicrobial coating for high-touch surfaces.', image: 'https://picsum.photos/seed/prod3/600/400' },
     { id: 4, name: 'Calibright', description: 'Portable device for instant equipment calibration.', image: 'https://picsum.photos/seed/prod4/600/400' },

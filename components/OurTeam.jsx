@@ -11,18 +11,18 @@ const OurTeam = () => (
       <div className="flex flex-col md:flex-row justify-center gap-12">
         {/* Card 2 */}
         <PinContainer
-          title="THARANY  – CO-FOUNDER & CHAIRPERSON"
-          href="#"
+          title="Connect through Linkedin"
+          href="https://www.linkedin.com/in/tharanyb"
           containerClassName="mx-auto"
-          className="w-96 h-80 flex flex-col items-center bg-purple-900 border-white shadow-xl"
+          className="w-96 h-96 flex flex-col items-center bg-purple-900 border-white shadow-xl"
         >
           <img
-            src="/imgs/tharanya.png" // Updated image path
+            src="/imgs/tharany.jpg" // Updated image path
             alt="Team member"
             className="rounded-full w-48 h-48 object-cover mt-10 shadow-xl border-2 border-white"
             style={{ objectPosition: "center top" }}
           />
-          <div className="mt-6 text-white text-lg font-bold tracking-wide">
+          <div className="mt-6 mb-4 text-white text-lg font-bold tracking-wide">
             THARANY
           </div>
           <div className="mt-2 mb-4 text-purple-500 text-md">
@@ -31,22 +31,23 @@ const OurTeam = () => (
         </PinContainer>
         {/* Card 1 */}
         <PinContainer
-          title="LOKESHWARAN  - CO-FOUNDER & HR"
-          href="#"
+          title="Connect through Linkedin"
+          href="https://www.linkedin.com/in/lokeshwaranj03"
           containerClassName="mx-auto"
-          className="w-96 h-80 flex flex-col items-center bg-purple-900 border-white shadow-xl"
+          className="w-96 h-96 flex flex-col items-center bg-purple-900 border-white shadow-xl"
         >
           <img
-            src="/imgs/lokesh.png"
+            src="/imgs/lokesh.jpg"
             alt="Team member"
             className="rounded-full w-48 h-48 object-cover mt-10 shadow-xl border-2 border-white"
             style={{ objectPosition: "center top" }} // Adjusted position
           />
-          <div className="mt-6 text-white text-lg font-bold tracking-wide">
+          <div className="mt-6 mb-4 text-white text-lg font-bold tracking-wide">
             LOKESHWARAN J
           </div>
-          <div className="mt-2 mb-4 text-purple-500 text-md">
+          <div className="mt-2 mb-10 text-purple-500 text-md">
             CO-FOUNDER & HR
+            <div className="mb-6"></div>
           </div>
         </PinContainer>
 

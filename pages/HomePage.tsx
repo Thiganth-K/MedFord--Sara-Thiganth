@@ -1,3 +1,4 @@
+import { Timeline } from "../ui/timeline";
 import * as React from 'react';
 import { motion, Variants, useInView, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { gsap } from 'gsap';
@@ -161,10 +162,11 @@ const AboutSection = () => {
                     <div className="text-left">
                         <p className="text-sm font-semibold text-primary uppercase tracking-widest">ABOUT US</p>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mt-3 leading-tight">
-                            Helping facilities <span className="bg-primary/10 px-2 py-1 rounded-md text-primary-light">succeed</span> through the power of innovation.
+                            Shaping tomorrow's<span className="bg-primary/10 px-2 py-1 rounded-md text-primary-light"> healthcare,</span> today.
                         </h2>
                         <p className="mt-6 text-lg text-gray-600">
-                            Founded on the principles of innovation and safety, Medford Technologies provides comprehensive solutions to the most pressing challenges in medical hygiene and equipment management. Our team of experts is committed to excellence, pushing the boundaries of technology to protect patients and healthcare professionals alike.
+At Medford Technologies, we help hospitals and laboratories achieve the highest standards of hygiene through advanced medical disinfectors and sterilization solutions. Founded on the principles of innovation, safety, and reliability, we develop technologies that address the most critical challenges in infection control and equipment management.
+Our team of engineers and healthcare specialists is dedicated to delivering solutions that are affordable, efficient, and globally competitive — protecting patients, empowering healthcare professionals, and shaping a safer, germ-free future.
                         </p>
                     </div>
                     
@@ -242,7 +244,7 @@ const ProductsSection = () => {
         <Section>
             <div className="container mx-auto">
                 <div className="text-center max-w-3xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Featured Product</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Our Product</h2>
                     <div className="w-24 h-1 bg-primary mx-auto mt-4 mb-6"></div>
                     <p className="text-lg text-gray-600">Discover the cutting-edge of medical technology with our flagship product.</p>
                 </div>
@@ -252,13 +254,12 @@ const ProductsSection = () => {
                         variants={textVariants}
                         className="text-left"
                     >
-                        <p className="text-sm font-semibold text-primary uppercase tracking-widest">{featuredProduct.name}</p>
+                        <p className="text-lg font-semibold text-primary uppercase tracking-widest">{featuredProduct.name}</p>
                         <h3 className="text-3xl font-bold text-gray-800 mt-3 leading-tight">
                             {featuredProduct.description}
                         </h3>
                         <p className="mt-6 text-lg text-gray-600">
-                            The SteriPro X2 represents the pinnacle of sterilization technology, offering unparalleled efficiency and reliability. Designed for high-volume medical facilities, it ensures complete microbial inactivation while preserving the integrity of delicate instruments. Its smart interface and automated cycles streamline workflow, reducing operational costs and enhancing patient safety.
-                        </p>
+The Bluvia Neo is a next-generation solution for hospitals, clinics, laboratories, and the pharmaceutical industry, delivering unmatched hygiene, safety, and efficiency. Equipped with a 120-liter chamber and the capacity to process 120–150 medical instruments per cycle, it integrates precision cleaning, thermal disinfection, and advanced HEPA-filtered drying — setting a new global benchmark in medical reprocessing technology.                        </p>
                         <Link to="/products" className="mt-8 group inline-flex items-center gap-2 bg-primary text-white font-bold py-3 px-8 rounded-full hover:bg-primary-light transition-colors shadow-lg">
                             Learn More
                             <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -282,20 +283,26 @@ const ProductsSection = () => {
 };
 
 const ServicesSection = () => (
-    <Section className="py-0 px-0 m-0">
-        <div className="relative h-[70vh] flex items-center justify-center text-white overflow-hidden m-0">
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute z-0 w-[110vw] min-w-0 min-h-full max-w-none rounded-xl shadow-lg m-0"
-            >
-                <source src="/videos/DL-2.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </Section>
+  <Section className="py-0 px-0 m-0">
+    <div className="relative h-[70vh] flex items-center justify-center text-white overflow-hidden m-0">
+      <video
+        src="/videos/DESIGN_LAB-2.mp4"
+        alt="Service Wing"
+        className="absolute z-0 w-[110vw] min-w-0 min-h-full max-w-none rounded-xl shadow-lg m-0 object-cover"
+        autoPlay
+        loop
+        muted
+      />
+      <div className="absolute z-10 bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <a
+          href="#/services"
+          className="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-full shadow-lg text-lg transition-colors"
+        >
+          Explore our service wing
+        </a>
+      </div>
+    </div>
+  </Section>
 );
 
 const INVESTOR_LOGOS = [
@@ -312,7 +319,7 @@ const InvestorsSection = () => (
         <div className="container mx-auto">
             <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Our Investors</h2>
-                <p className="mt-4 text-lg text-gray-600">We are proud to be backed by leading investors in the technology and healthcare sectors.</p>
+                <p className="mt-4 text-lg text-gray-600">Backed by investors who trust in our journey.</p>
             </div>
             <div className="mt-12 relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
                 <motion.div
@@ -338,142 +345,9 @@ const InvestorsSection = () => (
         </div>
     </Section>
 );
-const GALLERY_IMAGES = [
-  {
-    src: '/imgs/gallery1.png',
-    caption: 'A glimpse of our advanced medical technology in action.',
-  },
-  {
-    src: '/imgs/gallery2.png',
-    caption: 'Innovative solutions for modern healthcare challenges.',
-  },
-  {
-    src: '/imgs/gallery3.png',
-    caption: 'State-of-the-art facilities driving medical excellence.',
-  },
-];
 
-const galleryVariants: Variants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? '100%' : '-100%',
-    opacity: 0,
-  }),
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => ({
-    zIndex: 0,
-    x: direction < 0 ? '100%' : '-100%',
-    opacity: 0,
-  }),
-};
 
-const GallerySection = () => {
-    const [[page, direction], setPage] = React.useState([0, 0]);
-    const imageIndex = page % GALLERY_IMAGES.length;
 
-    const paginate = (newDirection: number) => {
-        setPage([page + newDirection, newDirection]);
-    };
-
-    React.useEffect(() => {
-        const interval = setInterval(() => {
-            paginate(1);
-        }, 2500); // Changed from 5000ms to 2500ms for faster transitions
-        return () => clearInterval(interval);
-    }, [page]);
-
-    const setPagetoIndex = (newIndex: number) => {
-        const newDirection = newIndex > imageIndex ? 1 : -1;
-        setPage([newIndex, newDirection]);
-    };
-
-    const containerRef = React.useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end end"],
-    });
-
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
-    const opacity = useTransform(scrollYProgress, [0.85, 1], [1, 0]);
-
-    return (
-        <div ref={containerRef} id="gallery" className="relative h-[250vh]">
-            <div className="sticky top-0 h-screen overflow-hidden">
-                {/* Fullscreen Image Background */}
-                <motion.div 
-                    className="absolute inset-0"
-                    style={{ scale }}
-                >
-                    <AnimatePresence initial={false} custom={direction}>
-                        <motion.div
-                            key={page}
-                            custom={direction}
-                            variants={galleryVariants}
-                            initial="enter"
-                            animate="center"
-                            exit="exit"
-                            transition={{
-                                x: { type: "spring", stiffness: 300, damping: 30 },
-                                opacity: { duration: 0.2 }
-                            }}
-                            className="absolute w-full h-full"
-                        >
-              <img
-                src={GALLERY_IMAGES[imageIndex].src}
-                alt={GALLERY_IMAGES[imageIndex].caption}
-                className="w-full h-full object-cover border-8 border-purple-800 rounded-xl"
-              />
-                            <div className="absolute inset-0 bg-black/40" />
-                        </motion.div>
-                    </AnimatePresence>
-                </motion.div>
-
-                {/* Content Overlay */}
-                <motion.div
-                    style={{ opacity }}
-                    className="relative z-10 h-full flex flex-col items-center justify-between text-white container mx-auto px-4 py-8"
-                >
-                    {/* Top part: Title 
-                    <div className="text-center max-w-3xl mx-auto w-full">
-                        <h2 className="text-3xl md:text-4xl text-purple-800 font-bold" style={{ textShadow: '2px 2px 6px #fff, 0px 0px 2px #fff' }}>Our Gallery</h2>
-                        <p className="mt-4 text-lg text-purple-800" style={{ textShadow: '2px 2px 6px #fff, 0px 0px 2px #fff' }}>A glimpse into our world of innovation, precision, and care in medical technology.</p>
-                    </div>
-                      */}
-                    {/* Bottom part: Caption and Dots 
-                    <div className="w-full max-w-5xl">
-                        <AnimatePresence mode="wait">
-                            <motion.p
-                                key={page}
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -10 }}
-                                transition={{ duration: 0.3 }}
-                                className="text-center text-sm md:text-base mb-4 h-10 text-purple-800 flex items-center justify-center"
-                            >
-                                {GALLERY_IMAGES[imageIndex].caption}
-                            </motion.p>
-                        </AnimatePresence>
-
-                        <div className="flex justify-center mt-2 space-x-3">
-                            {GALLERY_IMAGES.map((_, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => setPagetoIndex(index)}
-                                    className={`w-3 h-3 rounded-full transition-all duration-300 ease-in-out ${index === imageIndex ? 'bg-purple-800 scale-125' : 'bg-purple-200/50 hover:bg-purple-800'}`}
-                                    aria-label={`Go to slide ${index + 1}`}
-                                    aria-current={index === imageIndex}
-                                />
-                            ))}
-                        </div> 
-                    </div>*/}
-                </motion.div>
-            </div>
-        </div>
-    );
-};
 const SOCIAL_POSTS = [
   {
     platform: 'twitter',
@@ -481,7 +355,7 @@ const SOCIAL_POSTS = [
     username: 'MedFord Technologies',
     handle: '@MedFordTech',
     caption: 'Just launched the SteriPro X2! Our most advanced sterilization unit yet. Revolutionizing safety in healthcare facilities worldwide. #MedTech #Innovation #Healthcare',
-    postImage: '/imgs/sm1.png',
+    postImage: '/imgs/sm1.jpg',
     likes: '1.2K',
     comments: '48',
     retweets: '256',
@@ -754,36 +628,43 @@ const BLOG_POSTS = [
 ];
 
 const BlogSection = () => (
-    <Section id="blog" className="bg-light">
-        <div className="container mx-auto">
-            <div className="text-center max-w-3xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-800">From Our Blog</h2>
-                <div className="w-24 h-1 bg-primary mx-auto mt-4 "></div>
-                <p className="text-lg text-gray-600">Stay updated with the latest news, articles, and insights from the medical technology industry.</p>
+  <Section id="blog" className="bg-light">
+    <div className="container mx-auto">
+      <div className="text-center max-w-3xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">From Our Blog</h2>
+        <div className="w-24 h-1 bg-primary mx-auto mt-4 "></div>
+        <p className="text-lg text-gray-600">Stay updated with the latest news, articles, and insights from the medical technology industry.</p>
+      </div>
+      <div className="mt-12 relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
+        <motion.div
+          className="flex"
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{
+            ease: 'linear',
+            duration: 40,
+            repeat: Infinity,
+          }}
+        >
+          {[...BLOG_POSTS, ...BLOG_POSTS].map((post, index) => (
+            <div key={index} className="flex-shrink-0 mx-8" style={{ width: '350px', height: '420px' }}>
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden group h-full flex flex-col">
+                <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
+                <div className="p-6 flex-1 flex flex-col">
+                  <p className="text-sm text-gray-500">{post.date}</p>
+                  <h3 className="mt-2 text-xl font-semibold">{post.title}</h3>
+                  <p className="mt-2 text-gray-600">{post.excerpt}</p>
+                  <a href={`#/blog/${post.slug}`} className="mt-4 group inline-flex items-center gap-1 font-semibold text-primary hover:text-primary-light">
+                    Read More
+                    <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </div>
+              </div>
             </div>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {BLOG_POSTS.map((post) => (
-                    <motion.div
-                        key={post.id}
-                        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                        whileHover={{ y: -10 }}
-                        className="bg-white rounded-lg shadow-lg mb-4 overflow-hidden group"
-                    >
-                        <img src={post.image} alt={post.title} className="w-full  h-48 object-cover" />
-                        <div className="p-6 mb-4">
-                            <p className="text-sm text-gray-500">{post.date}</p>
-                            <h3 className="mt-2 text-xl font-semibold">{post.title}</h3>
-                            <p className="mt-2 text-gray-600">{post.excerpt}</p>
-                            <a href={`#/blog/${post.slug}`} className="mt-4 group inline-flex items-center gap-1 font-semibold text-primary hover:text-primary-light">
-                                Read More
-                                <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                            </a>
-                        </div>
-                    </motion.div>
-                ))}
-            </div>
-        </div>
-    </Section>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  </Section>
 );
 
 
@@ -792,13 +673,13 @@ const ContactSection = () => (
     <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center py-16">
       {/* Left Info Panel */}
       <div className="pr-8">
-        <p className="text-xs font-semibold text-purple-600 mb-2 tracking-widest">WE'RE HERE TO HELP YOU</p>
+        <p className="text-xs font-semibold text-purple-600 mb-2 tracking-widest">WE’RE HERE TO HELP YOU</p>
         <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-2">
-          <span className="text-purple-700">Discuss</span> Your<br />
-          Chemical Solution Needs
+          <span className="text-purple-700">Discuss</span> Your Sterilization & Hygiene Needs
         </h2>
         <p className="mt-4 text-base text-gray-600 mb-6">
-          Are you looking for top-quality chemical solutions tailored to your needs? Reach out to us.
+          Looking for advanced washing disinfectors and medical hygiene solutions tailored to your facility’s needs?<br />
+          Reach out to us and our team will provide the right solution for your hospital, laboratory, or healthcare center.
         </p>
         <div className="flex items-center gap-3 mb-2">
           <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 12v1m0 0v1m0-1h-4m4 0h4m-4 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
@@ -808,7 +689,7 @@ const ContactSection = () => (
 support@medford.in
 </p>
         <div className="flex items-center gap-3 mb-2">
-          <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2zm10-10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+          <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2zm10-10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2z" /></svg>
           <span className="text-sm font-medium">Phone number</span>
         </div>
         <p className="text-sm text-gray-700 mb-4">+919080705892</p>
@@ -820,17 +701,16 @@ support@medford.in
           <input type="text" id="fullName" placeholder="Jane Smith" className="w-full p-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-400 focus:outline-none" />
         </div>
         <div className="mb-4">
+          <label htmlFor="designation" className="block font-semibold mb-1 text-gray-700">Designation</label>
+          <input type="text" id="designation" placeholder="e.g. Lab Manager" className="w-full p-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-400 focus:outline-none" />
+        </div>
+        <div className="mb-4">
           <label htmlFor="email" className="block font-semibold mb-1 text-gray-700">Email</label>
           <input type="email" id="email" placeholder="email@domain.com" className="w-full p-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-400 focus:outline-none" />
         </div>
         <div className="mb-4">
-          <label htmlFor="industry" className="block font-semibold mb-1 text-gray-700">Industry</label>
-          <select id="industry" className="w-full p-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-400 focus:outline-none">
-            <option value="">Select...</option>
-            <option value="chemical">Chemical</option>
-            <option value="pharma">Pharmaceutical</option>
-            <option value="other">Other</option>
-          </select>
+          <label htmlFor="organization" className="block font-semibold mb-1 text-gray-700">Organization</label>
+          <input type="text" id="organization" placeholder="e.g. Medford Hospital" className="w-full p-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-400 focus:outline-none" />
         </div>
         <div className="mb-4">
           <label htmlFor="message" className="block font-semibold mb-1 text-gray-700">Message</label>
@@ -847,6 +727,46 @@ support@medford.in
 
 
 const HomePage: React.FC = () => {
+  // ...existing code...
+  const timelineData = [
+    {
+      title: "2022-2023",
+      content: (
+        <div>
+          <p className="mb-6 text-2xl md:text-4xl font-extrabold text-white bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 px-4 py-2 rounded-xl shadow-lg">
+            Founded Medford Technologies with a vision to revolutionize hospital sterilization.
+          </p>
+          <p className="mb-6 text-2xl md:text-4xl font-extrabold text-white bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 px-4 py-2 rounded-xl shadow-lg">
+            Developed the first working prototype of our advanced disinfector.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "2023-2024",
+      content: (
+        <div>
+          <p className="mb-6 text-2xl md:text-4xl font-extrabold text-white bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 px-4 py-2 rounded-xl shadow-lg">
+            Recognized as a <span className="text-yellow-300">DPIIT Startup</span>, marking a major milestone in our growth journey.
+          </p>
+          <p className="mb-6 text-2xl md:text-4xl font-extrabold text-white bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 px-4 py-2 rounded-xl shadow-lg">
+            Secured a total investment of <span className="text-green-300">₹90 lakhs</span> to scale R&D and manufacturing.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "2025",
+      content: (
+        <div>
+          <p className="mb-6 text-2xl md:text-4xl font-extrabold text-white bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 px-4 py-2 rounded-xl shadow-lg">
+            We are gearing up for our official launch in <span className="text-yellow-300">October 2025</span>, introducing <span className="text-pink-300">BLUVIA Neo</span> designed to transform sterilization practices.
+          </p>
+        </div>
+      ),
+    },
+  ];
+
   return (
     <div>
       <HeroSection />
@@ -855,7 +775,9 @@ const HomePage: React.FC = () => {
       <ServicesSection />
       <OurTeam />
       <InvestorsSection />
-      <GallerySection />
+      <section id="timeline" className="bg-white py-0 px-0 w-full">
+        <Timeline data={timelineData} />
+      </section>
       <SocialMediaSection />
       <BlogSection />
       <ContactSection />
