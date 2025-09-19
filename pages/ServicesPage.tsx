@@ -22,12 +22,12 @@ const HeroSection = () => (
       Your browser does not support the video tag.
     </video>
     <div className="absolute inset-0 bg-black opacity-60 z-1"></div>
-    <div className="container mx-auto px-4 text-center relative z-10">
+    <div className="container mx-auto px-8 text-center relative z-10 transform translate-y-28">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl md:text-6xl font-extrabold"
+        className="text-4xl md:text-6xl font-extrabold opacity-90"
       >
         Our Service Wing
       </motion.h1>
@@ -35,7 +35,7 @@ const HeroSection = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-purple-200"
+        className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-purple-200 opacity-80"
       >
         From Visionary Sketch to Market-Ready Product
       </motion.p>
@@ -50,9 +50,9 @@ const AboutSection = () => (
       {/* Image on the left */}
       <div className="md:w-1/2 w-full flex justify-center mb-8 md:mb-0">
         <img
-          src="https://images.unsplash.com/photo-1519494026892-80bbd2c6c107?auto=format&fit=crop&w=700&q=80"
+          src="imgs/logo2.jpg"
           alt="Car"
-          className="max-w-lg w-full h-auto drop-shadow-lg"
+          className="max-w-lg w-full h-auto drop-shadow-lg rounded-xl"
         />
       </div>
       {/* Text content on the right */}
@@ -60,7 +60,7 @@ const AboutSection = () => (
         <h3 className="text-2xl font-light text-gray-500 mb-3">About Medford Design Lab</h3>
         <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
           Powering MedTech  {" "}
-          <span className="bg-purple-200 px-2 rounded">Innovation,</span>{" "}
+          <span className="bg-purple-200 px-1 rounded">Innovation,</span>{" "}
           One Prototype at a Time
           <span className="text-purple-700">.</span>
         </h2>
@@ -111,22 +111,22 @@ const services = [
 // ---------------- TESTIMONIALS DATA ----------------
 const testimonials = [
   {
-    quote: "The medical technology solutions provided have transformed how we operate. Exceptional service and remarkable results.",
-    name: "Dr. Sarah Mitchell",
-    designation: "Chief Medical Officer",
-    src: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=500&auto=format&fit=crop"
+    quote: "Early-stage innovators often have to juggle multiple vendors, consultants, and service providers, leading to delays and misaligned outcomes.",
+    name: "Fragmented Support Ecosystem",
+    designation: "",
+    src: "imgs/ch1.jpg"
   },
   {
-    quote: "Their innovative approach to healthcare technology has significantly improved our patient care efficiency.",
-    name: "Dr. James Wilson",
-    designation: "Hospital Director",
-    src: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=500&auto=format&fit=crop"
+    quote: "Even with a solid concept, bridging the gap between lab design and scalable manufacturing can be costly and technically challenging.",
+    name: "Technology-to-Production Gap",
+    designation: "r",
+    src: "imgs/ch2.jpg"
   },
   {
-    quote: "Outstanding support team and cutting-edge solutions that have revolutionized our medical practice.",
-    name: "Dr. Emily Chen",
-    designation: "Head of Cardiology",
-    src: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=500&auto=format&fit=crop"
+    quote: "Many projects move forward without solid market research, resulting in products that miss real-world needs or fail commercially.",
+    name: "Lack of Market Validation",
+    designation: "",
+    src: "imgs/ch3.jpg"
   },
 ];
 
@@ -136,12 +136,12 @@ const ServicesSection: React.FC = () => {
     <section className="min-h-screen bg-gray-50 flex items-center py-12">
   <div className="container mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Left side content */}
-  <div className="md:pr-40 pr-12">
+  <div className="md:pr-20 pr-12">
           <h3 className="text-2xl font-light text-gray-500 mb-3">Our Services</h3>
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
             Concept-to-Prototype Development
           </h2>
-          <p className="text-lg text-gray-700 max-w-xl mb-6">
+          <p className="text-lg text-gray-700 max-w-full mb-6">
             We specialize in transforming innovative MedTech ideas into market-ready prototypes with
             <span className="bg-purple-200 text-purple-800 px-2 py-1 rounded font-semibold mx-1">speed and precision</span>.
             From initial concept sketches to functional models, our expert team integrates clinical insights, engineering excellence, and regulatory guidance — ensuring every product is designed for safety, compliance, and manufacturability. Empower your innovation with our streamlined, research-backed development process.
@@ -170,7 +170,7 @@ const ServicesSection: React.FC = () => {
             </Card>
             <Card className="bg-white p-8 flex flex-col items-center justify-center text-center rounded-xl shadow-lg border border-purple-700">
               <div className="bg-purple-100 p-4 rounded-full mb-4">
-                <Headphones className="w-10 h-10 text-purple-700" />
+                <Users className="w-10 h-10 text-purple-700" />
               </div>
               <h4 className="text-xl font-bold text-purple-700 mb-2">Clinical Validation</h4>
               <p className="text-purple-700 text-base">Insights from medical experts for real-world relevance</p>
@@ -217,7 +217,7 @@ const BusinessSection = () => (
         </h2>
         <div className="space-y-6">
           <p className="text-lg text-gray-700">
-            MedTech innovators often face significant challenges in validating their ideas with real clinical insights, accessing specialized design expertise, and managing high prototyping costs with extended development timelines. Securing reliable manufacturing partners can be difficult, while protecting intellectual property and navigating complex regulatory frameworks add additional barriers to bringing products to market.
+            MedTech innovators face hurdles like validating ideas with clinical insights, accessing design expertise, managing costly prototypes and long timelines, securing reliable manufacturing, and navigating IP protection and regulations
           </p>
           <div className="flex items-center space-x-2 text-gray-700">
             <span className="text-purple-600 text-xl">•</span>
@@ -280,58 +280,58 @@ const WhyChooseUs = () => (
           <span className="bg-purple-200 px-2 rounded">MedTech Ecosystem</span>{" "}
          
         </h2>
-        <p className="text-lg text-gray-700 mb-8"> We partner with a diverse range of forward-thinking organizations, providing expert guidance and hands-on support to bring medical technology innovations to life.</p>
+        <p className="text-lg text-gray-700 mb-8"> We partner with forward-thinking organizations, offering guidance and support to bring medical innovations to life.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Partner 1 */}
           <div className="flex flex-col items-start">
-            <div className="bg-purple-100 p-3 rounded-lg mb-4">
-              <Users className="w-8 h-8 text-purple-600" />
+            <div className="flex items-center gap-3 mb-2">
+              <div className="bg-purple-100 p-3 rounded-lg">
+                <Layers className="w-8 h-8 text-purple-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900">
+                MedTech Startups
+              </h4>
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">
-              MedTech Startups
-            </h4>
-            <p className="text-gray-600">
-              Helping early-stage companies develop market-ready medical devices efficiently.
-            </p>
+            
           </div>
 
           {/* Partner 2 */}
           <div className="flex flex-col items-start">
-            <div className="bg-purple-100 p-3 rounded-lg mb-4">
-              <Award className="w-8 h-8 text-purple-600" />
+            <div className="flex items-center gap-3 mb-2">
+              <div className="bg-purple-100 p-3 rounded-lg">
+                <Video className="w-8 h-8 text-purple-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900">
+                Research Labs & Academic Institutions
+              </h4>
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">
-              Research Labs & Academic Institutions
-            </h4>
-            <p className="text-gray-600">
-              Turning cutting-edge research into practical prototypes with clinical and engineering validation.
-            </p>
+            
           </div>
 
           {/* Partner 3 */}
           <div className="flex flex-col items-start">
-            <div className="bg-purple-100 p-3 rounded-lg mb-4">
-              <Shield className="w-8 h-8 text-purple-600" />
+            <div className="flex items-center gap-3 mb-2">
+              <div className="bg-purple-100 p-3 rounded-lg">
+                <Users className="w-8 h-8 text-purple-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900">
+                Hospital Innovation Teams
+              </h4>
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">
-              Hospital Innovation Teams
-            </h4>
-            <p className="text-gray-600">
-              Supporting in-house development of solutions that address real-world clinical needs.
-            </p>
+            
           </div>
 
           {/* Partner 4 */}
           <div className="flex flex-col items-start">
-            <div className="bg-purple-100 p-3 rounded-lg mb-4">
-              <Clock className="w-8 h-8 text-purple-600" />
+            <div className="flex items-center gap-3 mb-2">
+              <div className="bg-purple-100 p-3 rounded-lg">
+                <Award className="w-8 h-8 text-purple-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900">
+                Healthcare Innovators & Founders
+              </h4>
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">
-              Healthcare Innovators & Founders
-            </h4>
-            <p className="text-gray-600">
-              Enabling visionary leaders to explore new device verticals and scale ideas into impactful products.
-            </p>
+            
           </div>
         </div>
       </div>
