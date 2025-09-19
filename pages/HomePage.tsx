@@ -817,7 +817,7 @@ const HomePage: React.FC = () => {
       <ServicesSection />
       <OurTeam />
       <InvestorsSection />
-      <section id="timeline" className="bg-white py-0 px-0 w-full">
+      <section id="timeline" className="bg-black py-0 px-0 w-full">
         <Timeline data={timelineData} />
       </section>
       <SocialMediaSection />

@@ -89,7 +89,7 @@ const HeroSection = () => {
           onClick={handleGetStarted}
           className="inline-block mt-8 px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-full shadow-lg text-lg transition-colors"
         >
-          Get Started
+          Get Quote
         </button>
       </div>
     </div>

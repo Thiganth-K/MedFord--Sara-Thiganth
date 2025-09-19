@@ -288,7 +288,7 @@ const WhyChooseUs = () => (
               <div className="bg-purple-100 p-3 rounded-lg">
                 <Layers className="w-8 h-8 text-purple-600" />
               </div>
-              <h4 className="text-xl font-bold text-gray-900">
+              <h4 className="text-xl  text-gray-900">
                 MedTech Startups
               </h4>
             </div>
@@ -301,7 +301,7 @@ const WhyChooseUs = () => (
               <div className="bg-purple-100 p-3 rounded-lg">
                 <Video className="w-8 h-8 text-purple-600" />
               </div>
-              <h4 className="text-xl font-bold text-gray-900">
+              <h4 className="text-xl  text-gray-900">
                 Research Labs & Academic Institutions
               </h4>
             </div>
@@ -314,7 +314,7 @@ const WhyChooseUs = () => (
               <div className="bg-purple-100 p-3 rounded-lg">
                 <Users className="w-8 h-8 text-purple-600" />
               </div>
-              <h4 className="text-xl font-bold text-gray-900">
+              <h4 className="text-xl  text-gray-900">
                 Hospital Innovation Teams
               </h4>
             </div>
@@ -327,7 +327,7 @@ const WhyChooseUs = () => (
               <div className="bg-purple-100 p-3 rounded-lg">
                 <Award className="w-8 h-8 text-purple-600" />
               </div>
-              <h4 className="text-xl font-bold text-gray-900">
+              <h4 className="text-xl  text-gray-900">
                 Healthcare Innovators & Founders
               </h4>
             </div>
