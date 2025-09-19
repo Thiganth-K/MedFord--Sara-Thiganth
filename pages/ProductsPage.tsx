@@ -1,48 +1,49 @@
 "use client";
 import React, { useLayoutEffect, useRef, useState } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useNavigate } from "react-router-dom";
 import { BoltIcon, GlobeAltIcon, RocketLaunchIcon, EyeIcon } from "../components/Icons";
+import { Lens } from "../components/ui/lens";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
-    title: "Intelligent Medical Washer Disinfector",
+    title: " Medford’s BLUVIA Neo",
     description:
-      "BLUVIA NEO is an advanced medical washer disinfector crafted to transform the way hospitals manage surgical instrument reprocessing. With its intelligent design and advanced engineering, it streamlines cleaning workflows, reduces turnaround time, and ensures the highest standards of safety and compliance. Purpose-built for modern CSSDs, BLUVIA NEO combines performance, precision, and reliability to support infection control while empowering healthcare teams with confidence and efficiency.",
+      "BLUVIA NEO is an advanced medical washer disinfector designed for modern CSSDs. It streamlines workflows, shortens turnaround time, and ensures the highest safety and compliance standards—combining performance, precision, and reliability for confident infection control.",
     icon: BoltIcon,
-    image: "/imgs/pr1.png",
+    image: "/imgs/pr1.jpg",
   },
   {
     title: "High-Capacity Instrument Racks",
     description:
-      "BLUVIA NEO is equipped with precision-engineered racks capable of handling upto 120 surgical instruments per cycle, allowing hospitals to process large volumes efficiently. This high-capacity system ensures quicker turnaround of surgical sets, reduces downtime, and optimizes the overall workflow in sterile services. By supporting consistent and thorough cleaning, it strengthens hospital infection control measures and enhances patient safety.",
+      "With racks handling up to 120 instruments per cycle, BLUVIA NEO enables fast, efficient reprocessing. This high capacity reduces downtime, speeds up surgical set availability, and strengthens infection control.",
     icon: GlobeAltIcon,
-    image: "/imgs/pr2.png",
+    image: "/imgs/pr2.jpg",
   },
   {
     title: "HEPA-Filtered Air Drying",
     description:
-      "BLUVIA NEO is equipped with a 99.97% HEPA filtration system that delivers clean, particle-free air during the drying phase. This advanced mechanism ensures that every instrument is not only dry but also protected against microbial recontamination, preserving sterility until the next stage of processing. By eliminating residual moisture, the system prevents corrosion and extends the life of surgical instruments, giving hospitals a dependable solution for maintaining instrument integrity and safety.",
+      "Equipped with 99.97% HEPA filtration, BLUVIA NEO delivers particle-free air for safe, moisture-free drying. This prevents recontamination, protects instruments from corrosion, and preserves sterility.",
     icon: RocketLaunchIcon,
-    image: "/imgs/pr3.png",
+    image: "/imgs/pr3.jpg",
   },
   {
     title: "Advanced Disinfecting Solutions",
     description:
-      "To achieve uncompromised cleaning performance, BLUVIA NEO utilizes a specialized combination of disinfecting agents.Together, these agents break down bioburden, neutralize residues, and ensure spotless results across diverse surgical instruments. This powerful cleaning chemistry, integrated with the machine’s precision-engineered cycles, enables consistent, repeatable, and ISO-compliant outcomes, making BLUVIA NEO a trusted solution for modern CSSDs and sterile processing departments worldwide.",
+      "Using specialized disinfectants and precision cycles, BLUVIA NEO ensures spotless, ISO-compliant cleaning across all instrument types—delivering consistent, repeatable results for CSSDs worldwide.",
     icon: EyeIcon,
-    image: "/imgs/pr3.png",
+    image: "/imgs/pr3.jpg",
   },
   {
     title: "Integrated Digital Documentation",
     description:
-      "BLUVIA NEO’s optimized interfaces implifies compliance by automatically recording sterilization and disinfection data via network or USB. Fully aligned with ISO standards, it offers complete traceability, seamless audit readiness, and transparent reporting for hospital infection control systems. This ensures not only operational efficiency but also confidence in meeting regulatory requirements and delivering safe healthcare outcomes.",
+      "BLUVIA NEO simplifies compliance with automated cycle recording via network or USB. Offering full traceability and audit-ready reporting, it ensures transparency and regulatory confidence.",
     icon: GlobeAltIcon,
-    image: "/imgs/pr1.png",
+    image: "/imgs/pr1.jpg",
   },
 ];
 
@@ -67,12 +68,12 @@ const HeroSection = () => {
         Your browser does not support the video tag.
       </video>
       <div className="absolute inset-0 bg-black opacity-60"></div>
-      <div className="z-10 px-4 text-left w-full max-w-2xl ml-12">
+      <div className="z-10 px-4 text-center w-full max-w-2xl ml-36">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-extrabold tracking-tight"
+          className="text-5xl md:text-6xl font-extrabold tracking-tight"
         >
           BLUVIA Neo
         </motion.h1>
@@ -80,7 +81,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-4 text-lg md:text-xl max-w-2xl"
+          className="mt-4 text-xl md:text-xl max-w-2xl"
         >
           Engineered for safety, efficiency, and reliability.
         </motion.p>
@@ -163,24 +164,40 @@ const ScrollingFeaturesSection = () => {
     <section ref={sectionRef} className="py-20 bg-light">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Key Features</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">BLUVIA  Neo</h2>
           <div className="w-24 h-1 bg-primary mx-auto mt-4 mb-6"></div>
           <p className="text-lg text-gray-600">
-            Our products are built on a foundation of cutting-edge technology and unwavering commitment to safety.
+            Redefining sterilization with smarter, safer technology.
           </p>
         </div>
       </div>
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
-        {/* Left side: Sticky Image */}
+        {/* Left side: Sticky Image with Lens Effect */}
         <div className="hidden md:block sticky top-24 self-start h-[calc(100vh-8rem)]">
           <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
             {features.map((feature, index) => (
-              <img
-                key={index}
-                src={feature.image}
-                alt={feature.title}
-                className="feature-image absolute inset-0 w-full h-full object-cover"
-              />
+              <div 
+                key={index} 
+                className={`feature-image absolute inset-0 w-full h-full ${activeIndex === index ? 'z-10' : 'z-0'}`}
+              >
+                {activeIndex === index ? (
+                  <div className="w-full h-full">
+                    <Lens zoomFactor={1.8}>
+                      <img
+                        src={feature.image}
+                        alt={feature.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </Lens>
+                  </div>
+                ) : (
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                )}
+              </div>
             ))}
           </div>
         </div>
@@ -198,10 +215,18 @@ const ScrollingFeaturesSection = () => {
                 className="bg-white p-8 rounded-lg shadow-lg w-full"
               >
                 <div className="md:hidden mb-6 rounded-md overflow-hidden">
-                  <img src={feature.image} alt={feature.title} className="w-full h-48 object-cover" />
+                  <Lens zoomFactor={1.5}>
+                    <img
+                      src={feature.image}
+                      alt={feature.title}
+                      className="w-full h-48 object-cover"
+                    />
+                  </Lens>
                 </div>
-                <feature.icon className="w-12 h-12 text-primary" />
-                <h3 className="mt-4 text-2xl font-bold">{feature.title}</h3>
+                <div className="flex items-center gap-3 mb-3">
+                  <feature.icon className="w-12 h-12 text-primary flex-shrink-0" />
+                  <h3 className="text-2xl font-bold">{feature.title}</h3>
+                </div>
                 <p className="mt-2 text-gray-600 text-lg">{feature.description}</p>
               </motion.div>
             </div>
