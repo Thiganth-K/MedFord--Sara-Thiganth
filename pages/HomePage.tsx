@@ -19,11 +19,15 @@ import OurTeam from '../components/OurTeam'; // Adjust path if needed
 import BlurText from '../components/BlurText'; // Add this import
 import RotatingText from '../components/RotatingText';
 
+// Some component files are JS; cast to `any` to avoid strict TS prop checks here
+const RotatingTextComp: any = RotatingText as any;
+const BlurTextComp: any = BlurText as any;
+
 
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const AnimatedText: React.FC<{ text: string; className?: string; el?: keyof JSX.IntrinsicElements }> = ({ text, className, el = 'h1' }) => {
+const AnimatedText: React.FC<{ text: string; className?: string; el?: string }> = ({ text, className, el = 'h1' }) => {
     const words = text.split(" ");
     const container: Variants = {
         hidden: { opacity: 0 },
@@ -85,15 +89,23 @@ const HeroSection = () => (
     <div className="absolute inset-0 bg-black opacity-50"></div>
     <div className="z-10 container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="max-w-8xl mx-auto text-center">
-        <div className="flex items-center justify-center flex-nowrap gap-2 text-4xl md:text-6xl font-extrabold tracking-tight mb-8">
-          <div className="text-glow flex items-center justify-center flex-nowrap gap-2">
-            <BlurText
+        <div className="flex items-center justify-center gap-2 mb-8">
+          {/* Force single-line layout and responsive scaling */}
+          <div
+            className="text-glow flex items-center justify-center gap-2 whitespace-nowrap overflow-hidden"
+            style={{ fontWeight: 800, fontSize: 'clamp(18px, 4.5vw, 44px)', lineHeight: 1 }}
+          >
+            <BlurTextComp
               text="Revolutionizing Hospital Hygiene with"
               className="inline-block text-white"
+              // provide safe defaults to satisfy TS expectations from external definitions
+              animationFrom={{ filter: 'blur(10px)', opacity: 0, y: -50 }}
+              animationTo={[{ filter: 'blur(5px)', opacity: 0.5, y: 5 }, { filter: 'blur(0px)', opacity: 1, y: 0 }]}
+              onAnimationComplete={() => {}}
             />
-            <RotatingText
+            <RotatingTextComp
               texts={["Precision", "Innovation", "Excellence"]}
-              mainClassName="bg-purple-600 backdrop-sm px-6 py-2 rounded-lg border border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.5)]"
+              mainClassName="bg-purple-600 backdrop-sm px-4 sm:px-6 py-1 sm:py-2 rounded-lg border border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.5)]"
               elementLevelClassName="text-white"
               rotationInterval={3000}
               splitBy="words"
@@ -109,16 +121,23 @@ const HeroSection = () => (
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="mt-1 text-lg md:text-2xl text-gray-200 max-w-6xl mx-auto italic"
+          className="mt-1 text-gray-200 italic mx-auto"
+          style={{
+            fontSize: 'clamp(13px, 2.2vw, 20px)',
+            maxWidth: 'min(720px, 90%)',
+            lineHeight: 1.2,
+          }}
         >
-          Medford technologies is where Medtech innovation meets precision engineering
+          <span className="block md:inline-block whitespace-nowrap md:whitespace-normal overflow-hidden text-ellipsis">
+            Medford technologies is where Medtech innovation meets precision engineering
+          </span>
         </motion.p>
       </div>
     </div>
   </div>
 );
 
-const Section: React.FC<{ children: React.ReactNode; className?: string; id?: string; }> = ({ children, className = '', id }) => {
+const Section: React.FC<{ children: React.ReactNode; className?: string; id?: string; noPadding?: boolean }> = ({ children, className = '', id, noPadding = false }) => {
     const ref = React.useRef<HTMLDivElement>(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });
 
@@ -127,18 +146,18 @@ const Section: React.FC<{ children: React.ReactNode; className?: string; id?: st
         visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut', staggerChildren: 0.3 } },
     };
 
-    return (
-        <motion.section
-            id={id}
-            ref={ref}
-            variants={variants}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            className={`py-20 px-4 ${className}`}
-        >
-            {children}
-        </motion.section>
-    );
+  return (
+    <motion.section
+      id={id}
+      ref={ref}
+      variants={variants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      className={`${noPadding ? '' : 'py-20'} px-0${className}`}
+    >
+      {children}
+    </motion.section>
+  );
 };
 
 
@@ -168,9 +187,7 @@ const AboutSection = () => {
                             Shaping tomorrow's<span className="bg-primary/10 px-2 py-1 rounded-md text-primary-light"> healthcare,</span> today.
                         </h2>
                         <p className="mt-6 text-lg text-gray-600">
-At Medford Technologies, we help hospitals and laboratories achieve the highest standards of hygiene through advanced medical disinfectors and sterilization solutions. Founded on the principles of innovation, safety, and reliability, we develop technologies that address the most critical challenges in infection control and equipment management.
-Our team of engineers and healthcare specialists is dedicated to delivering solutions that are affordable, efficient, and globally competitive — protecting patients, empowering healthcare professionals, and shaping a safer, germ-free future.
-                        </p>
+At Medford Technologies, we provide hospitals and labs with advanced disinfectors and sterilization solutions built on innovation, safety, and reliability. Our expert team delivers affordable, efficient, and globally competitive technologies that protect patients, empower healthcare professionals, and drive a safer, germ-free future.</p>
                     </div>
                     
                     {/* Right Column: Image Grid */}
@@ -286,20 +303,25 @@ The Bluvia Neo is a next-generation solution for hospitals, clinics, laboratorie
 };
 
 const ServicesSection = () => (
-  <Section className="py-0 px-0 m-0">
-    <div className="relative h-[70vh] flex items-center justify-center text-white overflow-hidden m-0">
+  <Section className="px-0 m-0" noPadding>
+    <div className="relative h-[55vh] md:h-[70vh] flex items-center justify-center text-white overflow-hidden">
       <video
         src="/videos/DESIGN_LAB-2.mp4"
-        alt="Service Wing"
+        aria-label="Service Wing video"
         className="absolute z-0 w-[110vw] min-w-0 min-h-full max-w-none rounded-xl shadow-lg m-0 object-cover"
         autoPlay
         loop
         muted
       />
-      <div className="absolute z-10 bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center">
+  <div className="absolute z-10 bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center">
         <a
           href="#/services"
-          className="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-full shadow-lg text-lg transition-colors"
+          className="px-8 py-4 text-white font-bold rounded-full shadow-lg text-lg transition-all transform"
+          style={{
+            background: 'linear-gradient(90deg, #154A8F 0%, #750D9F 100%)',
+          }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 10px 30px rgba(117,13,159,0.25)'; (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-3px)'; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.boxShadow = ''; (e.currentTarget as HTMLAnchorElement).style.transform = ''; }}
         >
           Explore our service wing
         </a>
@@ -322,7 +344,7 @@ const InvestorsSection = () => (
         <div className="container mx-auto">
             <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Our Investors</h2>
-                <p className="mt-4 text-lg text-gray-600">Backed by investors who trust in our journey.</p>
+                <p className="mt-4 text-lg text-gray-600">Who trust in our journey</p>
             </div>
             <div className="mt-12 relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
                 <motion.div
@@ -354,34 +376,34 @@ const InvestorsSection = () => (
 const SOCIAL_POSTS = [
   {
     platform: 'twitter',
-    avatar: '/imgs/logo.png',
+    avatar: '/imgs/FB.webp',
     username: 'MedFord Technologies',
     handle: '@MedFordTech',
-    caption: 'Just launched the SteriPro X2! Our most advanced sterilization unit yet. Revolutionizing safety in healthcare facilities worldwide. #MedTech #Innovation #Healthcare',
+    caption: 'A new era in healthcare isn’t coming — it’s already unfolding. At Medford Technologies , we’re reimagining how safety, speed, and digital precision come together inside clinics across India. Before we unveil what’s next this October, we’re opening up an impactful new blog series: Safestart by Medford',
     postImage: '/imgs/sm1.jpg',
-    likes: '1.2K',
-    comments: '48',
-    retweets: '256',
+    likes: '1K',
+    comments: '8',
+    retweets: '25',
   },
   {
     platform: 'instagram',
-    avatar: '/imgs/logo.png',
+    avatar: '/imgs/ins.jpg',
     username: 'medfordtechnologies',
-    caption: 'A behind-the-scenes look at our dedicated team developing the next generation of medical safety equipment. Excellence is in our DNA. ✨',
-    postImage: '/imgs/sm2.png',
-    likes: '3,450',
-    comments: '129',
+    caption: 'Medverse 2025! Our very own Co-founder, Ms.Tharany is joining a power-packed panel on: The Next Frontier: Why Tier 2/3 Cities Hold the Key to India’s Healthtech Future',
+    postImage: '/imgs/sm2.jpg',
+    likes: '300',
+    comments: '12',
   },
   {
     platform: 'linkedin',
-    avatar: '/imgs/logo.png',
+    avatar: '/imgs/l.png',
     username: 'MedFord Technologies',
-    followers: '15,280 followers',
-    caption: 'We are thrilled to announce our partnership with Global Health Initiative to expand access to our EnviroCleanse disinfectant in developing nations. This collaboration marks a significant step in our mission to create a safer, healthier world for everyone. Learn more on our website.',
-    postImage: '/imgs/sm3.png',
-    likes: '891',
-    comments: '76',
-    reposts: '102',
+    followers: '5,280 followers',
+    caption: 'A Big NEWS From Medford Technologies! We are excited to announce the launch of our new service wing at the Medverse.2025 Hospital Growth Summit!',
+    postImage: '/imgs/sm3.jpg',
+    likes: '91',
+    comments: '12',
+    reposts: '10',
   },
 ];
 
@@ -543,7 +565,7 @@ const SocialMediaSection = () => {
               Follow us on our social channels to get the latest news on product launches, industry insights, and our ongoing mission to improve global healthcare safety.
             </p>
             <a
-              href="#contact"
+              href="https://www.linkedin.com/company/medford/"
               className="mt-8 inline-block bg-primary text-white font-bold py-3 px-8 rounded-full hover:bg-primary-light transition-colors shadow-lg"
             >
               Follow Us
@@ -681,7 +703,7 @@ const ContactSection = () => (
           <span className="text-purple-700">Discuss</span> Your Sterilization & Hygiene Needs
         </h2>
         <p className="mt-4 text-base text-gray-600 mb-6">
-          Looking for advanced washing disinfectors and medical hygiene solutions tailored to your facility’s needs?<br />
+          
           Reach out to us and our team will provide the right solution for your hospital, laboratory, or healthcare center.
         </p>
         <div className="flex items-center gap-3 mb-2">
@@ -695,7 +717,7 @@ support@medford.in
           <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2zm10-10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2z" /></svg>
           <span className="text-sm font-medium">Phone number</span>
         </div>
-        <p className="text-sm text-gray-700 mb-4">+919080705892</p>
+        <p className="text-sm text-gray-700 mb-4">+91 90807 05892</p>
       </div>
       {/* Right Form Panel */}
       <form className="bg-white p-8 rounded-2xl shadow-xl text-gray-800 w-full max-w-md mx-auto">
@@ -753,10 +775,10 @@ const HomePage: React.FC = () => {
       title: "2022-2023",
       content: (
         <div>
-          <p className="mb-6 text-2xl md:text-4xl font-extrabold text-white bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 px-4 py-2 rounded-xl shadow-lg">
+          <p className="mb-4 text-xl md:text-2xl font-extrabold text-white">
             Founded Medford Technologies with a vision to revolutionize hospital sterilization.
           </p>
-          <p className="mb-6 text-2xl md:text-4xl font-extrabold text-white bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 px-4 py-2 rounded-xl shadow-lg">
+          <p className="mb-4 text-xl md:text-2xl font-extrabold text-white">
             Developed the first working prototype of our advanced disinfector.
           </p>
         </div>
@@ -766,11 +788,11 @@ const HomePage: React.FC = () => {
       title: "2023-2024",
       content: (
         <div>
-          <p className="mb-6 text-2xl md:text-4xl font-extrabold text-white bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 px-4 py-2 rounded-xl shadow-lg">
-            Recognized as a <span className="text-yellow-300">DPIIT Startup</span>, marking a major milestone in our growth journey.
+          <p className="mb-4 text-xl md:text-2xl font-extrabold text-white">
+            Recognized as a <span className="text-purple-300">DPIIT Startup</span>, marking a major milestone in our growth journey.
           </p>
-          <p className="mb-6 text-2xl md:text-4xl font-extrabold text-white bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 px-4 py-2 rounded-xl shadow-lg">
-            Secured a total investment of <span className="text-green-300">₹90 lakhs</span> to scale R&D and manufacturing.
+          <p className="mb-4 text-xl md:text-2xl font-extrabold text-white">
+            Secured a total investment of <span className="text-purple-300">₹90 lakhs</span> to scale R&D and manufacturing.
           </p>
         </div>
       ),
@@ -779,8 +801,8 @@ const HomePage: React.FC = () => {
       title: "2025",
       content: (
         <div>
-          <p className="mb-6 text-2xl md:text-4xl font-extrabold text-white bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 px-4 py-2 rounded-xl shadow-lg">
-            We are gearing up for our official launch in <span className="text-yellow-300">October 2025</span>, introducing <span className="text-pink-300">BLUVIA Neo</span> designed to transform sterilization practices.
+          <p className="mb-4 text-xl md:text-2xl font-extrabold text-white">
+            We are gearing up for our official launch in <span className="text-purple-300">October 2025</span>, introducing <span className="text-purple-300">BLUVIA Neo</span> designed to transform sterilization practices.
           </p>
         </div>
       ),

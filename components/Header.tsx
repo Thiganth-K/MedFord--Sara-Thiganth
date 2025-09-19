@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-
 import { NAV_LINKS } from '../constants';
 
 const Logo = () => (
-    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="rounded-full">
+  <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="rounded-full w-7 h-7 sm:w-8 sm:h-8">
         <path d="M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0z" fill="url(#logo-gradient)"/>
         <path d="M12 28V12h3.5l4.5 9 4.5-9H28v16h-3V15.5l-4.5 9-4.5-9V28h-4z" fill="white" />
         <defs>
@@ -51,19 +51,21 @@ const Header: React.FC = () => {
 
 
   return (
-    <motion.header 
-        variants={{
-            visible: { y: 0 },
-            hidden: { y: "-150%" },
-        }}
-        animate={hidden ? "hidden" : "visible"}
-        transition={{ duration: 0.35, ease: "easeInOut" }}
-        className="fixed top-0 left-0 right-0 z-50 pt-4 px-4 sm:px-6 lg:px-8"
-    >
-      <div className="relative max-w-5xl mx-auto">
-<nav className="flex justify-between items-center bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-white/20 px-6 py-3">          <Link to="/" className="flex items-center gap-3 text-lg font-bold text-gray-800 hover:text-primary transition-colors">
+  <motion.header 
+    variants={{
+      visible: { y: 0 },
+      hidden: { y: "-150%" },
+    }}
+    animate={hidden ? "hidden" : "visible"}
+    transition={{ duration: 0.35, ease: "easeInOut" }}
+    className="fixed top-0 left-0 right-0 z-50 pt-2 sm:pt-4 px-3 sm:px-6 lg:px-8"
+  >
+  <div className="relative max-w-3xl md:max-w-5xl mx-auto">
+<nav className="flex justify-between items-center bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-white/20 px-4 sm:px-6 py-2 sm:py-3">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-bold text-gray-800 hover:text-primary transition-colors">
             <Logo />
-            <span className="hidden sm:inline">MedFord Technologies</span>
+            {/* show app name on mobile as smaller text, larger on sm+ */}
+            <span className="text-sm sm:text-base">MedFord Technologies</span>
           </Link>
           
           {/* Desktop Navigation */}
@@ -122,7 +124,7 @@ const Header: React.FC = () => {
           
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 focus:outline-none p-2 rounded-full hover:bg-white/50 transition-colors">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 focus:outline-none p-1.5 rounded-full hover:bg-white/50 transition-colors">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
               </svg>

@@ -2,7 +2,7 @@ import React from "react";
 import { PinContainer } from "../ui/3d-pin"; // adjust path as needed
 
 const OurTeam = () => (
-  <section className="py-16 px-6 bg-gradient-to-b from-purple-100 via-white to-purple-200 min-h-[600px]">
+  <section className="py-6 pt-4 px-6 bg-gradient-to-b from-purple-100 via-white to-purple-200 min-h-[280px] md:min-h-[600px]">
     <div className="max-w-6xl mx-auto text-center">
       <h2 className="text-4xl font-extrabold text-purple-800 mb-4">
         Our Team

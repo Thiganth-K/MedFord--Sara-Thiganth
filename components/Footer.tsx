@@ -8,12 +8,14 @@ const Footer = () => {
   <div className="flex flex-col items-start col-span-2">
           <span className="font-bold text-xl mb-2 text-[#4e227b]">Medford Technologies</span>
           <p className="text-sm mb-2 text-[#6d4c8e]">
-            incubated at sona incubation foundation, salem<br />
-            Registerd Address : NO 8/ 265 vinayaga puri town , kodalure<br />
-            Gudalur , salem sankari , Tamil Nadu India PIN : 637103
+            Incubated @ Sona Incubation Foundation<br />
+            Reg. off : 130, Kallikottai main road, Kondalampatty, 
+            Salem – 636010<br />
+            
+
           </p>
-          <p className="text-sm mb-2 text-[#4e227b]"><span className="font-semibold">PHONE:</span> + 919080705892</p>
-          <p className="text-sm mb-2 text-[#4e227b]"><span className="font-semibold">EMAIL:</span> medfordtechnologies20220@gmail.com</p>
+          <p className="text-sm mb-2 text-[#4e227b]"><span className="font-semibold">PHONE:</span> +91 90807 05892</p>
+          <p className="text-sm mb-2 text-[#4e227b]"><span className="font-semibold">EMAIL:</span> support@medford.in</p>
           <div className="flex space-x-3 mt-2">
             {/* Social Media Icons */}
             <a href="#" aria-label="Facebook" className="hover:text-[#3a1856] transition">
@@ -35,7 +37,7 @@ const Footer = () => {
             <li><a href="#" className="hover:underline">About us</a></li>
             <li><a href="#" className="hover:underline">Product</a></li>
             <li><a href="#" className="hover:underline">Services</a></li>
-            <li><a href="#" className="hover:underline">Gallery</a></li>
+            <li><a href="#" className="hover:underline">Our Jourm</a></li>
             <li><a href="#" className="hover:underline">Social Media </a></li>
             <li><a href="#" className="hover:underline">News / Blogs</a></li>
           </ul>
