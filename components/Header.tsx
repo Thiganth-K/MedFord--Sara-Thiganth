@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-
 import { NAV_LINKS } from '../constants';
 
 const Logo = () => (
-  <img src="/imgs/logo.png" alt="MedFord Technologies Logo" className="w-7 h-7 sm:w-8 sm:h-8" />
+  <img src="/imgs/logo.png" alt="MedFord Technologies Logo" className="w-9 h-9 sm:w-8 sm:h-8" />
 );
 
 
