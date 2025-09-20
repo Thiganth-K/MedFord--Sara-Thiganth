@@ -11,6 +11,11 @@ const PORT = process.env.PORT || 3000;
 // Serve static files from the dist directory (created by vite build)
 app.use(express.static(path.join(__dirname, 'dist')));
 
+// Health check endpoint for Render
+app.get('/healthz', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // For all routes, serve the index.html file (client-side routing)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
