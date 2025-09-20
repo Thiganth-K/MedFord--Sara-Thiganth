@@ -318,9 +318,9 @@ const ServicesSection = () => (
           href="#/services"
           className="px-8 py-4 text-white font-bold rounded-full shadow-lg text-lg transition-all transform"
           style={{
-            background: 'linear-gradient(90deg, #154A8F 0%, #750D9F 100%)',
+            backgroundColor: '#963DD6',
           }}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 10px 30px rgba(117,13,159,0.25)'; (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-3px)'; }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 10px 30px rgba(150,61,214,0.4)'; (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-3px)'; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.boxShadow = ''; (e.currentTarget as HTMLAnchorElement).style.transform = ''; }}
         >
           Explore our service wing
