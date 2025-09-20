@@ -5,16 +5,7 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-
 import { NAV_LINKS } from '../constants';
 
 const Logo = () => (
-  <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="rounded-full w-7 h-7 sm:w-8 sm:h-8">
-        <path d="M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0z" fill="url(#logo-gradient)"/>
-        <path d="M12 28V12h3.5l4.5 9 4.5-9H28v16h-3V15.5l-4.5 9-4.5-9V28h-4z" fill="white" />
-        <defs>
-            <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#8b5cf6"/>
-                <stop offset="1" stopColor="#7c3aed"/>
-            </linearGradient>
-        </defs>
-    </svg>
+  <img src="/imgs/logo.png" alt="MedFord Technologies Logo" className="w-7 h-7 sm:w-8 sm:h-8" />
 );
 
 
